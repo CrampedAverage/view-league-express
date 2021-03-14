@@ -1,9 +1,10 @@
 .nav-bar {
-    position: fixed;
-    min-width: 272px;
-    min-height: 100%;
     display: flex;
     flex-direction: column;
+    width: 272px;
+    max-width: 272;
+    min-height: 100%;
+
     background-color: #38374E;
 
     border: 1px solid red;
@@ -11,7 +12,7 @@
 
 .nav-title {
     min-height: 125px;
-    min-width: 228px;
+    width: 228px;
     max-width: 228px;
     font-size: 28px;
     text-align: center;
@@ -23,10 +24,10 @@
     border: 1px solid red;
 }
 
- 
-.nav-bar ul {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    border: 1px solid red;
+.nav-item {
+    width: 200px;
+    max-width: 200px;
+    font-size: 18px;
+    background-color: #132028;
+    color: #fff;
 }
