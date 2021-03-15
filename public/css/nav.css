@@ -1,0 +1,43 @@
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    width: 272px;
+    max-width: 272;
+    height: 100%;
+    background-color: #38374E;
+    color: #fff;
+    position: fixed
+}
+
+.nav-title {
+    min-height: 125px;
+    width: 228px;
+    max-width: 228px;
+    font-size: 28px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    padding: 42px;
+    background-color: #1B1A36;
+    font-weight: 500;
+}
+
+.nav-bar ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 80%;
+}
+
+.nav-item {
+    width: 200px;
+    max-width: 200px;
+    height: 54px;
+    font-size: 18px;
+    background-color: #132028;
+    margin: 20px auto;
+    padding: 12px;
+    border-radius: 20px;
+    text-align: center;
+    list-style: none;
+}
+
