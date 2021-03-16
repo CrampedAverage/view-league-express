@@ -1,1 +1,6 @@
-.env*
+# misc
+.env-*
+http.rest
+
+# Library packages
+/node_modules
