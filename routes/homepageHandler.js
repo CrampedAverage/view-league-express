@@ -4,7 +4,8 @@ const router = express.Router()
 router.get('/', (req, res) => {
     res.render('home', {
         title: "viewLeague || View Players",
-        name: 'Home Page'
+        name: 'Home Page',
+        style: "home.css"
     })
 })
 
