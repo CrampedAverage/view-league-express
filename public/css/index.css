@@ -1,5 +1,7 @@
 body {
     height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -8,4 +10,10 @@ body {
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Noto Serif JP', serif;
+}
+
+.main {
+    min-width: calc(100vw - 272px);
+    height: 100vh;
+    background-color: #07141C;
 }
