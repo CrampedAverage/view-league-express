@@ -57,13 +57,12 @@
     background-color: #b4b4b4;
 }
 
-
 .title {
-    /* min-width: 800px; */
     width: 800px;
     height: 80px;
     font-size: 3rem;   
     padding: 40px 121px;
+    text-align: center;
 }
 
 
@@ -72,7 +71,7 @@
 .slogan {
     display: flex;
     width: 450px;
-    margin-top: 350px;
+    margin-top: 300px;
     font-size: 1.5rem;
     height: 37px;
 }
