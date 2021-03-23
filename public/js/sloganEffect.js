@@ -1,4 +1,4 @@
-const texts = ['Summoners', 'Champions', 'Build'];
+const texts = ['Summoners', 'Champions', 'Builds'];
 let count = 0;
 let textsIndex = 0;
 
