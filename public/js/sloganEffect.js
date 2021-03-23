@@ -11,12 +11,10 @@ let letter = '';
     }
     currentText = texts[count];
     letter = currentText.slice(0, ++textsIndex);
-    console.log(letter)
     document.querySelector('.typing').textContent = letter;
     if (letter.length === currentText.length) {
         count++;
         textsIndex = 0
     }
-    // setTimeout(type(), 100000)
     setTimeout(type, 400)
 })();
