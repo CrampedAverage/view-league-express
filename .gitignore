@@ -1,5 +1,5 @@
 # misc
-.env-*
+.env*
 http.rest
 
 # Library packages
