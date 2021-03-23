@@ -1,6 +1,6 @@
 {
   "name": "viewleague",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Site to view league information",
   "main": "server.js",
   "dependencies": {
