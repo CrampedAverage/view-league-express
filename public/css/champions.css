@@ -26,6 +26,7 @@
     max-height: 720px;
     background-color: rgb(145, 145, 145);
     padding: 25px;
+    border-radius: 20px;
 }
 
 .container {
@@ -45,6 +46,8 @@
     height: 125px;
     background-color: #132028;
     margin: 10px 18px;
+
+    border-radius: 10px;
 }
 
 .champion:hover {
