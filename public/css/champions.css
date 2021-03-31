@@ -1,6 +1,5 @@
 .title, .champions-container, .cover {
     margin: 0px auto;
-    position: relative;
     color: #fff;
 }
 
@@ -14,6 +13,7 @@
 }
 
 .champions-container {
+    position: relative;
     top: 70px;
     width: 1500px;
     height: 720px;
