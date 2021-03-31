@@ -1,6 +1,5 @@
 .title, .slogan, .search-field {
     margin: 0px auto;
-    position: relative;
     color: #fff;
 }
 
@@ -69,6 +68,7 @@
 
 .slogan {
     display: flex;
+    position: relative;
     width: 450px;
     margin-top: 300px;
     font-size: 1.5rem;
