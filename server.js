@@ -24,15 +24,12 @@ app.set('view engine', 'handlebars');
 // This middleware handles the render of the first page
 app.use('/', urlencodedParser, require('./routes/homepageHandler'))
 
-app.use('/:id', require('./routes/playerpageHandler'))
-
-// The first middleware is responsible for fetching Champions from riot api
-// and then sending it as a json respons to ./routes/api/champions
-app.use('/champions', require('./middleware/championsData'))
-
 // The second middleware will fetch the champions from the 
 // ./routes/api/champions then render it
 app.use('/champions', require('./routes/champageHandler'))
+
+// This middlware will be used when the user enters a random route
+app.use('/:id', require('./routes/playerpageHandler'))
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
