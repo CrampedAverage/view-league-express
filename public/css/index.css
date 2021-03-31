@@ -12,8 +12,9 @@ body {
     font-family: 'Noto Serif JP', serif;
 }
 
-.main {
-    min-width: calc(100vw - 272px);
+main {
+    width: calc(100vw - 272px);
+    margin-left: 272px;
     height: 100vh;
     background-color: #07141C;
 }
