@@ -27,7 +27,7 @@ app.post('/summoner', (req, res) => {
   res.send(name)
 })
 
-// This middleware handles 
+// This middleware handles the render of the first page
 app.use('/', require('./routes/homepageHandler'))
 
 // The first middleware is responsible for fetching Champions from riot api
