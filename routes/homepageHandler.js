@@ -9,4 +9,8 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    res.redirect(`/${req.body.summoner}`)
+})
+
 module.exports = router
