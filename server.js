@@ -38,6 +38,9 @@ app.use('/champions', require('./middleware/championsData'))
 // ./routes/api/champions then render it
 app.use('/champions', require('./routes/champageHandler'))
 
+// This middleware handles the render of the player match history and stats
+app.use('/player', require('./routes/playerpageHandler'))
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 })
