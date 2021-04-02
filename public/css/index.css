@@ -10,6 +10,7 @@ body {
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Noto Serif JP', serif;
+    list-style: none;
 }
 
 main {
