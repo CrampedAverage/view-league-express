@@ -1,4 +1,5 @@
 .title, .champions-container, .cover {
+    margin: 0px auto;
     color: #fff;
 }
 
