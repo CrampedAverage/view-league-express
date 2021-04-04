@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/nav.css"/>
-    <link rel="stylesheet" href="css/index.css"/>
-    <link rel="stylesheet" href="css/{{style}}"/>
+    <link rel="stylesheet" href="/css/nav.css"/>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="/css/{{style}}"/>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap" 
     rel="stylesheet">
     <title>{{title}}</title>
 </head>
-<body>
-    <nav class="nav-bar">
-        <div class="nav-title">viewLeague</div>
-        <ul>
-            <a href="/"><li class="nav-item" value="home">Home</li></a>
-            <a href="/champions"><li class="nav-item" value="champions">Champions</li></a>
-        </ul>
-    </nav>
+<body>  
+    {{> nav }}
     <main>
         {{{body}}}
     </main>
