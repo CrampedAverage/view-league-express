@@ -1,6 +1,7 @@
 # misc
 .env*
 http.rest
+.prettier*
 
 # Library packages
 /node_modules
