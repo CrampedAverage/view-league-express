@@ -1,4 +1,6 @@
-.title, .champions-container, .cover {
+.title,
+.champions-container,
+.cover {
     margin: 0px auto;
     color: #fff;
 }
@@ -6,10 +8,9 @@
 .title {
     width: 800px;
     height: 80px;
-    font-size: 3rem;   
+    font-size: 3rem;
     padding: 40px 121px;
     text-align: center;
-
 }
 
 .champions-container {
@@ -53,7 +54,7 @@
     width: 75px;
     min-height: 75px;
     margin: 10px auto;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
 }
 
 .champion-name {

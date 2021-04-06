@@ -1,20 +1,24 @@
-.title, .slogan, .search-field {
+.title,
+.slogan,
+.search-field {
     margin: 0px auto;
     color: #fff;
 }
 
 /*** FORM ***/
 
-#text-field, #submit-field {
+#text-field,
+#submit-field {
     padding: 0px 20px;
     transition: 0.5s ease;
 }
 
-.search-field, #text-field, #submit-field {
-    background-color: #C4C4C4;
+.search-field,
+#text-field,
+#submit-field {
+    background-color: #c4c4c4;
     border-radius: 20px;
 }
-
 
 .search-field {
     width: 1080px;
@@ -28,7 +32,7 @@
     height: 105%;
     position: relative;
     top: -2.5%;
-    left: -1%
+    left: -1%;
 }
 
 #submit-field {
@@ -58,11 +62,10 @@
 .title {
     width: 800px;
     height: 80px;
-    font-size: 3rem;   
+    font-size: 3rem;
     padding: 40px 121px;
     text-align: center;
 }
-
 
 /*** SLOGAN ***/
 
@@ -87,7 +90,7 @@
 }
 
 .typing::after {
-    content: '';
+    content: "";
     border: 1px solid white;
     position: absolute;
     top: 10%;
@@ -97,7 +100,6 @@
     animation: blink 0.5s infinite ease;
 }
 
-
 @keyframes blink {
     0% {
         opacity: 0;
@@ -106,7 +108,6 @@
         opacity: 1;
     }
 }
-
 
 /*** MEDIA QUERY ***/
 

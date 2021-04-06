@@ -1,24 +1,23 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 const app = express();
 
-let summonerName; 
+let summonerName;
 
-router.get('/', (req, res, next) => {
-    const path = req.originalUrl.slice(1)
-    summonerName = decodeURI(path)
+router.get("/", (req, res, next) => {
+    const path = req.originalUrl.slice(1);
+    summonerName = decodeURI(path);
 
-    next()
+    next();
+});
 
-})
-
-router.get('/', (req, res) => {
-    res.render('player', {
+router.get("/", (req, res) => {
+    res.render("player", {
         title: `${summonerName} || viewLeague`,
         name: summonerName,
-        style: "player.css"
-    })
-})
+        style: "player.css",
+    });
+});
 
-module.exports = router
+module.exports = router;

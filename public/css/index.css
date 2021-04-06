@@ -4,12 +4,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Noto Serif JP", serif;
     list-style: none;
 }
 
@@ -17,6 +16,6 @@ main {
     width: calc(100vw - 272px);
     margin-left: 272px;
     height: 100vh;
-    background-color: #07141C;
+    background-color: #07141c;
     color: #fff;
 }

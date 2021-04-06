@@ -1,16 +1,16 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('home', {
+router.get("/", (req, res) => {
+    res.render("home", {
         title: "viewLeague || View Players",
-        name: 'Home Page',
-        style: "home.css"
-    })
-})
+        name: "Home Page",
+        style: "home.css",
+    });
+});
 
-router.post('/', (req, res) => {
-    res.redirect(`/${req.body.summoner}`)
-})
+router.post("/", (req, res) => {
+    res.redirect(`/${req.body.summoner}`);
+});
 
-module.exports = router
+module.exports = router;

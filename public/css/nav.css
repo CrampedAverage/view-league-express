@@ -4,7 +4,7 @@
     width: 272px;
     max-width: 272;
     height: 100%;
-    background-color: #38374E;
+    background-color: #38374e;
     color: #fff;
     position: fixed;
 }
@@ -17,7 +17,7 @@
     text-align: center;
     margin: 10px auto 0 auto;
     padding: 42px;
-    background-color: #1B1A36;
+    background-color: #1b1a36;
     font-weight: 500;
 }
 
@@ -26,7 +26,6 @@
     flex-direction: column;
     justify-content: space-around;
     min-height: calc(100vh - 125px);
-
 }
 
 .nav-item {
@@ -49,4 +48,3 @@ a {
 a:hover {
     transform: scale(1.1);
 }
-
