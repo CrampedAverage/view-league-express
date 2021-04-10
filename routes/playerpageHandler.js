@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
-const app = express();
+const regionObj = require('../server')
 
 let summonerName;
 
@@ -17,6 +16,7 @@ router.get("/", (req, res) => {
         title: `${summonerName} || viewLeague`,
         name: summonerName,
         style: "player.css",
+        region: regionObj.region
     });
 });
 
