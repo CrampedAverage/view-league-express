@@ -3,9 +3,9 @@ const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
 
-const regions = ['na', 'euw']
-const region = 'euw'
-module.exports = {region, regions}
+const regions = ["na", "euw"];
+const region = "euw";
+module.exports = { region, regions };
 
 const hbs = exphbs.create({
     defaultLayout: "main",
@@ -28,9 +28,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.get('/', (req, res) => {
-  res.redirect(`${region}`)
-})
+app.get("/", (req, res) => {
+    res.redirect(`${region}`);
+});
 
 // This middleware handles the render of the first page
 app.use(`/${region}`, urlencodedParser, require("./routes/homepageHandler"));
