@@ -1,0 +1,177 @@
+/*** PLAYER INFO ***/
+
+.player-info-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    background-color: red;
+    height: 250px;
+}
+
+.profile {
+    border: 1px solid black;
+    width: 270px;
+    height: 230px;
+    margin: auto;
+}
+
+.player-name,
+.rank {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    padding-top: 8px;
+}
+
+.icon {
+    width: 100%;
+    height: 180px;
+    border: 1px solid yellow;
+}
+
+.player-info-container ul {
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.player-info-container ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 150px;
+    border: 1px solid red;
+}
+
+.champ-img {
+    width: 120px;
+    height: 100px;
+    border: 1px solid red;
+}
+
+/*** MATCH HISTORY ***/
+
+.match-history-container {
+    width: 1400px;
+    height: 530px;
+    margin: 100px auto;
+    border: 1px solid red;
+}
+
+.title {
+    width: 400px;
+    border-bottom: 1px solid #fff;
+    margin: 0px auto;
+    padding: 15px 0px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.match-history {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 110px;
+    margin: 10px auto;
+
+    border: 1px solid white;
+}
+
+.match-history > div {
+    border: 1px solid red;
+    height: 100%;
+}
+
+.type-of-game, .KDA, .player-stats {
+    padding: 0px 10px;
+    font-size: 0.9rem;
+}
+
+.type-of-game > div {
+    text-align: center;
+}
+
+#space {
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    width: 99px;
+    margin: 0px auto 10px auto;
+}
+
+#champion-played {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+
+.KDA div{
+    text-align: center;
+    margin: 20px auto 5px auto;
+}
+
+.deaths {
+    color: rgb(187, 88, 88)
+}
+
+.player-stats div {
+    text-align: center;
+    margin: 10px auto 5px auto;
+}
+
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 120px;
+
+}
+
+#items div {
+    width: 35px;
+    height: 35px;
+    border: 1px solid red;
+    margin: 0px 2px;
+}
+
+.players {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+    font-size: 0.7rem;
+}
+
+.players > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100px;
+    align-items: center;
+    color: red;
+    border: 1px solid yellow;
+}
+
+.players section > div::before {
+    content: '';
+    width: 5px;
+    height: 50px;
+    border: 1px solid red;
+}
+.players div {
+    width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    border: 1px solid red;
+}
+
