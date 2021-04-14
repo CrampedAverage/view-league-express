@@ -37,7 +37,7 @@
 .champion {
     display: flex;
     flex-direction: column;
-    width: 105px;
+    width: 120px;
     height: 125px;
     background-color: #132028;
     margin: 10px 18px;
