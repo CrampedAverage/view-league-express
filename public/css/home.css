@@ -111,14 +111,57 @@
 
 /*** MEDIA QUERY ***/
 
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 1420px) {
     .search-field {
         width: 850px;
     }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1280px) {
     .search-field {
-        width: 640px;
+        width: 720px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .title {
+        width: 480px;
+        font-size: 2.5rem;
+        padding: 40px 0px;
+    }
+
+    .slogan {
+        margin-top: 220px;
+    }
+    .search-field {
+        width: 520px;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    
+    .title {
+        width: 340px;
+        padding: 60px 0px;
+    }
+
+    .search-field {
+        width: 320px;
+        max-width: 80vw;
+    }
+
+    #text-field {
+        width: 70%;
+    }
+
+    #submit-field {
+        width: 30%;
+        font-size: 0.8rem;
+        padding: 0px;
+    }
+
+    .slogan {
+        width: 90%;
     }
 }
