@@ -6,19 +6,20 @@
 }
 
 .title {
-    width: 800px;
+    width: 400px;
     height: 80px;
     font-size: 3rem;
-    padding: 40px 121px;
+    padding: 40px 0px;
     text-align: center;
 }
 
 .champions-container {
     position: relative;
     top: 70px;
+    /* margin-top: 70px; */
     width: 1500px;
     height: 720px;
-    max-height: 720px;
+    max-height: 60vh;
     background-color: rgb(145, 145, 145);
     padding: 25px;
     border-radius: 20px;
@@ -63,4 +64,81 @@
     text-align: center;
     font-size: 1.1rem;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+@media screen and (max-width: 1820px) {
+    .champions-container {
+        width: 1350px;
+    }
+}
+
+@media screen and (max-width: 1720px) {
+    .champions-container {
+        width: 1200px;
+    } 
+}
+
+@media screen and (max-width: 1620px) {
+    .champions-container {
+        width: 1050px;
+    }
+}
+
+@media screen and (max-width: 1520px) {
+    .champions-container {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .champions-container {
+        width: 750px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .champions-container {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .champions-container {
+        width: 420px;
+        max-width: 80vw;
+        padding: 15px;
+    }
+
+    .champion {
+        width: 80px;
+        height: 90px;
+    }
+
+    .champion-image {
+        width: 50px;
+        min-height: 50px
+    }
+
+    .champion-name {
+        height: 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .champions-container {
+        padding: 10px;
+    }
+    .champion {
+        width: 64px;
+    }
+
+    .champion-name {
+        width: 90%;
+        margin: 0px auto;
+    }
 }
