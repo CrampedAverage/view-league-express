@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
+const { Server } = require("http");
 
 const regions = ["na", "euw"];
 const region = "euw";
@@ -43,5 +44,5 @@ app.use(`/${region}/champions`, require("./routes/champageHandler"));
 app.use(`/${region}/player/:id`, require("./routes/playerpageHandler"));
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://local:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });
