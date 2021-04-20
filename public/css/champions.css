@@ -7,19 +7,16 @@
 
 .title {
     width: 400px;
-    height: 80px;
+    height: 20vh;
     font-size: 3rem;
     padding: 40px 0px;
     text-align: center;
 }
 
 .champions-container {
-    position: relative;
-    top: 70px;
-    /* margin-top: 70px; */
     width: 1500px;
     height: 720px;
-    max-height: 60vh;
+    max-height: 70vh;
     background-color: rgb(145, 145, 145);
     padding: 25px;
     border-radius: 20px;
