@@ -10,10 +10,10 @@
 }
 
 .nav-title {
-    min-height: 125px;
+    height: 125px;
     width: 228px;
     max-width: 228px;
-    font-size: 28px;
+    font-size: 1.75rem;
     text-align: center;
     margin: 10px auto 0 auto;
     padding: 42px;
