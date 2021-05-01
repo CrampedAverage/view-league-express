@@ -4,8 +4,9 @@
     width: 272px;
     max-width: 272;
     height: 100%;
-    background-color: #38374e;
+    background-color: #0E2736;
     color: #fff;
+    border-right: 2px solid black;
     position: fixed;
 }
 
@@ -17,7 +18,8 @@
     text-align: center;
     margin: 10px auto 0 auto;
     padding: 42px;
-    background-color: #1b1a36;
+    background-color: #1A435B;
+    border: 2px solid black;
     font-weight: 500;
 }
 
@@ -33,6 +35,7 @@
     height: 54px;
     font-size: 18px;
     background-color: #132028;
+    border: 1px solid black;
     margin: 0px auto;
     padding: 12px;
     border-radius: 20px;
