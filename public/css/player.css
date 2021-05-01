@@ -292,15 +292,19 @@ section  {
     .player-name {
         font-size: 1.5rem;
     }
-}
 
-@media screen and (max-width: 900px) {
-    section, .tab, .player-info-container {
-        width: 780px;
+    
+    .rank, .champions {
+        width: 250px;
     }
 
-    .rank {
-        width: 310px;
+
+    section, .tab, .player-info-container {
+        width: 760px;
+    }
+
+    .match-history-container {
+        width: 480px;
     }
 
     #champion-played {
@@ -328,6 +332,10 @@ section  {
     .tab {
         width: 350px;
         margin-top: 20px;
+    }
+
+    .rank, .champions {
+        width: 360px;
     }
 
     .champions {
