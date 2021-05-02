@@ -8,4 +8,64 @@
     <input id="text-field" type="text" name="summoner" placeholder="view Summoners" required/>
     <input id="submit-field" type="submit" name="nothing" value="Submit"/>
 </form>
-<script src="js/sloganEffect.js"></script>
+
+<div class="region">{{region}} ↓</div>
+
+<section class="server-change">
+    <h2 class="region-title">Regions</h2>
+    <h2 class="close-regions">X</h2>
+    <form class="server-field" method="post" action="/">
+        <ul class="region-list">
+            <li>
+                <input type="radio" id="euw" name="region" value="euw" required>
+                <label for="euw">Europe</label>
+            </li>
+            <li>    
+                <input type="radio" id="na" name="region" value="na">
+                <label for="na">North America</label>
+            </li>
+            <li>           
+                <input type="radio" id="kr" name="region" value="kr">
+                <label for="kr">Korea</label>              
+            </li>
+            <li>        
+                <input type="radio" id="jp" name="region" value="jp">
+                <label for="jp">Japan</label>
+            </li>
+            <li>        
+                <input type="radio" id="eune" name="region" value="eune">
+                <label for="eune">Europe Nordic</label>
+            </li>           
+            <li>    
+                <input type="radio" id="oce" name="region" value="oce">
+                <label for="oce">Oceania</label>   
+            </li>           
+            <li>      
+                <input type="radio" id="br" name="region" value="br">
+                <label for="br">Brazil</label>   
+            </li>
+            <li>      
+                <input type="radio" id="las" name="region" value="las">
+                <label for="las">LAS</label>   
+            </li>
+            <li>      
+                <input type="radio" id="lan" name="region" value="lan">
+                <label for="lan">LAN</label>   
+            </li>
+            <li>      
+                <input type="radio" id="rus" name="region" value="la">
+                <label for="rus">Russia</label>   
+            </li>
+            <li>      
+                <input type="radio" id="tur" name="region" value="tur">
+                <label for="tur">Turkey</label>   
+            </li>
+        </ul>
+  
+
+
+        <input id="save-field" type="submit" value="Save"/>
+        
+    </form>
+</section>
+<script src="js/homeScript.js"></script>
