@@ -104,6 +104,11 @@
 }
 
 @media screen and (max-width: 620px) {
+    .title {
+        font-size: 2rem;
+        padding-top: 75px;
+        height: 130px;
+    }
     .champions-container {
         width: 420px;
         max-width: 80vw;
