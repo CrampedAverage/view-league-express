@@ -31,7 +31,6 @@
     align-items: center;
     padding: 5px 20px;
     font-size: 1.2rem;
-
 }
 
 .total-games {
@@ -39,15 +38,15 @@
 }
 .rank > div:nth-child(2) {
     font-size: 1.6rem;
-}   
+}
 
-.sum-icon, .rank-border {
+.sum-icon,
+.rank-border {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     border: 1px solid white;
 }
-
 
 .player-name {
     height: fit-content;
@@ -73,20 +72,19 @@
 
 .tab > div:hover {
     cursor: pointer;
-    color: #1E5678;
-    border-bottom: 1px solid #1E5678;
+    color: #1e5678;
+    border-bottom: 1px solid #1e5678;
 }
 
 /*********                      *********/
 /********* MATCH AND CHAMPIONS  *********/
 /*********                      *********/
 
-section  {
+section {
     display: flex;
     margin: 0px auto;
     width: 1360px;
 }
-
 
 /*********                *********/
 /********* MATCH HISTORY  *********/
@@ -96,7 +94,6 @@ section  {
     width: 840px;
     background: #183445;
     border: 1px solid black;
-
 }
 
 .title {
@@ -120,7 +117,9 @@ section  {
     margin: 10px auto;
 }
 
-#type-of-game, .KDA, .player-stats {
+#type-of-game,
+.KDA,
+.player-stats {
     padding: 0px 10px;
     font-size: 0.9rem;
 }
@@ -152,7 +151,7 @@ section  {
 }
 
 .deaths {
-    color: rgb(187, 88, 88)
+    color: rgb(187, 88, 88);
 }
 
 .player-stats div {
@@ -167,7 +166,6 @@ section  {
     align-items: center;
     height: fit-content;
     width: 120px;
-
 }
 
 #items div {
@@ -213,7 +211,8 @@ section  {
     border: 1px solid white;
 }
 
-.num-of-games, .kda  {
+.num-of-games,
+.kda {
     font-size: 0.8rem;
     text-align: center;
 }
@@ -226,38 +225,37 @@ section  {
     font-weight: bold;
 }
 
-
-
 @media screen and (max-width: 1720px) {
-
-    section, .tab, .player-info-container {
+    section,
+    .tab,
+    .player-info-container {
         width: 1300px;
     }
-    
 }
 
 @media screen and (max-width: 1580px) {
-
-    .rank, .champions {
+    .rank,
+    .champions {
         width: 400px;
     }
-    section, .tab, .player-info-container {
+    section,
+    .tab,
+    .player-info-container {
         width: 1000px;
     }
     .match-history-container {
         width: 580px;
     }
 
-    #type-of-game, .player-stats {
+    #type-of-game,
+    .player-stats {
         font-size: 0.72rem;
     }
-    
 }
 
-
-
-@media  screen and (max-width: 1280px) {
-    .rank, .champions {
+@media screen and (max-width: 1280px) {
+    .rank,
+    .champions {
         width: 350px;
     }
     .player-info-container {
@@ -274,32 +272,35 @@ section  {
     }
 
     #type-of-game {
-        width: 100px
+        width: 100px;
     }
 
-    #type-of-game, .player-stats {
+    #type-of-game,
+    .player-stats {
         padding: 10px 5px;
         font-size: 0.6rem;
-    } 
+    }
 
-    section, .tab, .player-info-container {
+    section,
+    .tab,
+    .player-info-container {
         width: 980px;
     }
 }
-
 
 @media screen and (max-width: 950px) {
     .player-name {
         font-size: 1.5rem;
     }
 
-    
-    .rank, .champions {
+    .rank,
+    .champions {
         width: 250px;
     }
 
-
-    section, .tab, .player-info-container {
+    section,
+    .tab,
+    .player-info-container {
         width: 760px;
     }
 
@@ -315,15 +316,15 @@ section  {
     #items {
         display: none;
     }
-    
 }
 
 @media screen and (max-width: 800px) {
-
     section {
         flex-direction: column-reverse;
     }
-    section, .tab, .player-info-container {
+    section,
+    .tab,
+    .player-info-container {
         width: 560px;
     }
     .match-history-container {
@@ -334,7 +335,8 @@ section  {
         margin-top: 20px;
     }
 
-    .rank, .champions {
+    .rank,
+    .champions {
         width: 360px;
     }
 
@@ -342,7 +344,7 @@ section  {
         margin: 0px auto 20px auto;
     }
 
-    .match-history > div{
+    .match-history > div {
         margin: 0px auto;
     }
 
@@ -354,7 +356,9 @@ section  {
         height: 80px;
     }
 
-    #type-of-game, .KDA, .player-stats {
+    #type-of-game,
+    .KDA,
+    .player-stats {
         font-size: 0.5rem;
         padding: 4px 0px;
     }
@@ -366,7 +370,7 @@ section  {
     }
 
     #type-of-game {
-        width: 80px
+        width: 80px;
     }
 
     .player-info-container {
@@ -380,9 +384,9 @@ section  {
         width: 270px;
         font-size: 0.8rem;
         margin: 20px auto;
-    } 
+    }
 
     .kpa {
-        display: none; 
+        display: none;
     }
 }
