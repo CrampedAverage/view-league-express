@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
         title: `${summonerName} || viewLeague`,
         name: summonerName,
         style: "player.css",
-        region: regionObj.region,
+        region: req.cookies.region,
     });
 });
 

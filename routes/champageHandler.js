@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const regionObj = require("../server");
 const API = require('../util/riotAPI') 
 
 let data;
@@ -22,7 +21,7 @@ router.get("/", (req, res) => {
         title: "viewLeague || View Champions",
         name: "Champions Page",
         style: "champions.css",
-        region: regionObj.region,
+        region: req.cookies.region,
         champions: data,
     });
 });
