@@ -246,6 +246,7 @@ li {
         width: 520px;
     }
 
+<<<<<<< HEAD
     #text-field {
         width: 75%;
     }
@@ -261,6 +262,9 @@ li {
         font-size: 0.8rem;
     }
 
+=======
+@media screen and (max-width: 540px) {
+>>>>>>> 4f74162f472042164c4bbf96b08c3dc1d6428682
     .title {
         width: 340px;
         padding: 60px 0px;
@@ -283,6 +287,7 @@ li {
         width: 90%;
     }
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 340px) {
     #text-field {
@@ -290,3 +295,5 @@ li {
         font-size: 0.7rem;
     }
 }
+=======
+>>>>>>> 4f74162f472042164c4bbf96b08c3dc1d6428682
