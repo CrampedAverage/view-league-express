@@ -43,7 +43,6 @@
     right: 0;
     cursor: pointer;
     font-size: 1.2rem;
-
 }
 
 #submit-field:hover {
@@ -101,7 +100,6 @@
     animation: blink 0.5s infinite ease;
 }
 
-
 .server-change {
     display: none;
     width: 640px;
@@ -141,16 +139,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-
 }
 
-
 .region-list > li:hover {
-    
     background-color: #132028;
 }
 
-input[type=radio] {
+input[type="radio"] {
     position: absolute;
     cursor: pointer;
     top: 50%;
@@ -161,11 +156,13 @@ input[type=radio] {
     border-radius: 50%;
 }
 
-input[type=radio]:checked {
+input[type="radio"]:checked {
     background-color: #27536e;
 }
 
-li > label, li> input, li {
+li > label,
+li > input,
+li {
     cursor: pointer;
 }
 
@@ -182,11 +179,11 @@ li > label, li> input, li {
     padding: 3px;
     margin: 20px auto;
     cursor: pointer;
-    background-color: #1A435B;
+    background-color: #1a435b;
 }
 
 .region:hover {
-    transform: scale(1.2);  
+    transform: scale(1.2);
 }
 
 .close-regions {
@@ -197,8 +194,6 @@ li > label, li> input, li {
     font-size: 1.7rem;
     cursor: pointer;
 }
-
-
 
 @keyframes blink {
     0% {
@@ -228,7 +223,6 @@ li > label, li> input, li {
 }
 
 @media screen and (max-width: 840px) {
-
     .server-change {
         width: 480px;
     }
@@ -238,7 +232,7 @@ li > label, li> input, li {
         margin: 10px 10px;
         font-size: 0.8rem;
     }
-    
+
     .title {
         width: 480px;
         font-size: 2.5rem;
@@ -257,9 +251,7 @@ li > label, li> input, li {
     }
 }
 
-
 @media screen and (max-width: 540px) {
-
     .server-change {
         width: 250px;
     }
@@ -268,8 +260,7 @@ li > label, li> input, li {
         margin: 7px 0px;
         font-size: 0.8rem;
     }
-    
-    
+
     .title {
         width: 340px;
         padding: 60px 0px;

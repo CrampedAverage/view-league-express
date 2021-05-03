@@ -19,31 +19,27 @@ function sloganEffect() {
         setTimeout(type, 400);
     }
     type();
-
-};
-
-function closeServerChange() {
-    console.log(1)
-    let serverDiv = document.querySelector('.server-change');
-    let close = document.querySelector('.close-regions')
-    let region = document.querySelector('.region')
-    console.log(region)
-
-    region.addEventListener('click', () => {
-        serverDiv.style.display = 'block';
-        region.style.display = 'none';
-    })
-
-    close.addEventListener('click', () => {
-        serverDiv.style.display = 'none'
-        region.style.display = 'block'
-    })
-    
 }
 
+function closeServerChange() {
+    console.log(1);
+    let serverDiv = document.querySelector(".server-change");
+    let close = document.querySelector(".close-regions");
+    let region = document.querySelector(".region");
+    console.log(region);
+
+    region.addEventListener("click", () => {
+        serverDiv.style.display = "block";
+        region.style.display = "none";
+    });
+
+    close.addEventListener("click", () => {
+        serverDiv.style.display = "none";
+        region.style.display = "block";
+    });
+}
 
 (function main() {
     sloganEffect();
     closeServerChange();
 })();
-

@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const exphbs = require("express-handlebars");
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 
 const regions = ["na", "euw"];
 let region;
@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.use("/", urlencodedParser, require('./middleware/homeAction'));
+app.use("/", urlencodedParser, require("./middleware/homeAction"));
 
 // This middleware handles the render of the first page
 app.use(`/:id`, urlencodedParser, require("./routes/homepageHandler"));

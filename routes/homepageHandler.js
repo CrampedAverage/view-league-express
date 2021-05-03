@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
     if (req.body.region) {
-        regionObj.region = req.body.region
-        res.redirect(`${regionObj.region}`)
+        regionObj.region = req.body.region;
+        res.redirect(`${regionObj.region}`);
     }
     res.redirect(`${req.cookies.region}/player/${req.body.summoner}`);
 });

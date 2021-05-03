@@ -7,7 +7,7 @@ let summonerName;
 router.get("/", (req, res, next) => {
     const path = req.originalUrl.slice(1);
     summonerName = decodeURI(path);
-    
+
     next();
 });
 
