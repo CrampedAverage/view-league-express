@@ -7,12 +7,16 @@ router.get("/", (req, res) => {
         title: "viewLeague || View Players",
         name: "Home Page",
         style: "home.css",
-        region: regionObj.region,
+        region: req.cookies.region,
     });
 });
 
 router.post("/", (req, res) => {
-    res.redirect(`${regionObj.region}/player/${req.body.summoner}`);
+    if (req.body.region) {
+        regionObj.region = req.body.region
+        res.redirect(`${regionObj.region}`)
+    }
+    res.redirect(`${req.cookies.region}/player/${req.body.summoner}`);
 });
 
 module.exports = router;
