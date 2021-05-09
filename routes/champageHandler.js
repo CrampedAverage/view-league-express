@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const API = require("../util/riotAPI");
+const riotAPI = require("../util/riotAPI");
 
 let data;
 
 // This middleware is responsible for fetching the champions from the API
 router.get("/", async (req, res, next) => {
     try {
-        data = await API.championList();
-        data = await Object.values(data.data);
+        data = await riotAPI.championList();
     } catch (err) {
         console.log(err);
     }
