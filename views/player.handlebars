@@ -1,16 +1,18 @@
 <div class="player-info-container">
     <div class="profile">
-        <div class="sum-icon"></div>
-        <h1 class="player-name">xEliteProdigyx</h1>
+        <img class="sum-icon" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/{{user.icon}}.jpg" alt="Summoner Icon">
+        <h1 class="player-name">{{user.summonerName}}</h1>
     </div>
     <div class="rank">
         <div> 
-            <div class="rank-border"></div>
-            <div>Rank</div>
+            <img class="rank-border" src="/img/Emblem_{{user.tier}}.png" alt="Rank border">
+            <div class="rank-title">{{user.tier}}</div>
+            <div>{{user.rank}}</div>
+
         </div>
         <div>
-            <div class="total-games">300W 200L</div>
-            <div id="wr-t">60%</div>
+            <div class="total-games">{{user.wins}}W {{user.losses}}L</div>
+            <div id="wr-t">{{user.wr}}%</div>
         </div>
 
     </div>
@@ -36,7 +38,7 @@
                 <img 
                 class="champion-icon"
                 border-radius="50%"
-                src="https://cdn.communitydragon.org/{{version}}/champion/{{gameStats.champion}}/square">
+                src="https://cdn.communitydragon.org/11.10.1/champion/{{gameStats.champion}}/square">
 
                 <div class="player-stats">
                     <div class="calc-kda">{{gameStats.kda}}:1 KDA</div>
@@ -48,15 +50,27 @@
                 </div>
                 <div class="player-stats kpa">
                     <div>{{gameStats.kpa}}% KPA</div>
-                    <div>{{gameStats.kills}}/{{gameStats.totalTeamKills}}</div>
+                    <div>{{gameStats.killAssist}}/{{gameStats.totalTeamKills}}</div>
                 </div>
                 <div id="items">
+                    {{#if gameStats.item1}}
                     <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item1}}.png">
+                    {{/if}}
+                    {{#if gameStats.item2}}
                     <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item2}}.png">
+                    {{/if}}
+                    {{#if gameStats.item3}}
                     <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item3}}.png">
+                    {{/if}}
+                    {{#if gameStats.item4}}
                     <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item4}}.png">
+                    {{/if}}
+                    {{#if gameStats.item5}}
                     <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item5}}.png">
+                    {{/if}}
+                    {{#if gameStats.item6}}
                     <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item6}}.png">
+                    {{/if}}
                 </div>
             </li>
             {{/each}}
