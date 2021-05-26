@@ -1,5 +1,6 @@
 const e = require("express");
 const express = require("express");
+const LeagueStats = require("../helper/leagueStats");
 const router = express.Router();
 const regionObj = require("../server");
 const Process = require("../util/process");
@@ -9,6 +10,7 @@ const riotAPI = require("../util/riotAPI");
 let found;
 let limitReached = false;
 let games;
+let userInfo;
 
 router.get("/", async (req, res, next) => {
     path = req.originalUrl.split("/")[3];
@@ -34,10 +36,17 @@ router.get("/", async (req, res, next) => {
 
         limitReached = false;
         found = true;
+        // Retrieves user Rank Pofile
+
+        userInfo = await riotAPI.getUserRank(passedData.id);
+        userInfo.wr = LeagueStats.getWinrate(userInfo.wins, userInfo.losses);
+        userInfo.tier = LeagueStats.capitaliseWord(userInfo.tier);
+        userInfo.icon = passedData.profileIconId;
+        console.log(userInfo)
 
         // Retrives the match history
         const matches = await riotAPI
-            .matches(regionCode, passedData.accountId, 2)
+            .matches(regionCode, passedData.accountId, 10)
             .then((match) => match);
         if (matches) {
             const user = await new Process(passedData.accountId);
@@ -72,6 +81,7 @@ router.get("/", (req, res) => {
             name: summonerName,
             style: "player.css",
             games: games,
+            user: userInfo,
             region: req.cookies.region,
         };
     }
