@@ -17,8 +17,8 @@ class LeagueStats {
         return cspm;
     }
 
-    static getKPA(kills, totalKills) {
-        let kpa = (kills / totalKills) * 100;
+    static getKPA(kills, totalKills, assists) {
+        let kpa = ((kills + assists) / totalKills) * 100;
         kpa = kpa.toFixed(0);
         kpa = parseFloat(kpa);
 
@@ -35,6 +35,23 @@ class LeagueStats {
         const totalKills = totalTeamKills.reduce((acc, cur) => acc + cur);
 
         return totalKills;
+    }
+
+    static getWinrate(wins, losses) {
+        let wr = wins / (wins + losses);
+        wr = wr * 100;
+        wr = wr.toFixed(0);
+
+        return wr;
+    }
+
+    static capitaliseWord(word) {
+        let newWord = word.toLowerCase();
+        newWord = newWord.split("");
+        newWord[0] = newWord[0].toUpperCase();
+        newWord = newWord.join("");
+
+        return newWord;
     }
 }
 
