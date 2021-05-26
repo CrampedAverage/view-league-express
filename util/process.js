@@ -36,6 +36,7 @@ class Process {
                     kills: player.stats.kills,
                     deaths: player.stats.deaths,
                     assists: player.stats.assists,
+                    killAssist: player.stats.kills + player.stats.assists,
                     kda: LeagueStats.getKDA(
                         player.stats.kills,
                         player.stats.assists,
@@ -43,7 +44,8 @@ class Process {
                     ),
                     kpa: LeagueStats.getKPA(
                         player.stats.kills,
-                        LeagueStats.getTotalKills(match, player)
+                        LeagueStats.getTotalKills(match, player),
+                        player.stats.assists
                     ),
                     level: player.stats.champLevel,
                     cs:
@@ -60,12 +62,30 @@ class Process {
                         match.gameCreation,
                         match.gameDuration
                     ),
-                    item1: player.stats.item0,
-                    item2: player.stats.item1,
-                    item3: player.stats.item2,
-                    item4: player.stats.item3,
-                    item5: player.stats.item4,
-                    item6: player.stats.item5,
+                    item1:
+                        player.stats.item0 === 0
+                            ? undefined
+                            : player.stats.item0,
+                    item2:
+                        player.stats.item1 === 0
+                            ? undefined
+                            : player.stats.item1,
+                    item3:
+                        player.stats.item2 === 0
+                            ? undefined
+                            : player.stats.item2,
+                    item4:
+                        player.stats.item3 === 0
+                            ? undefined
+                            : player.stats.item3,
+                    item5:
+                        player.stats.item4 === 0
+                            ? undefined
+                            : player.stats.item4,
+                    item6:
+                        player.stats.item5 === 0
+                            ? undefined
+                            : player.stats.item5,
                 };
                 return games;
             });
