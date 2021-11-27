@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const regionObj = require("../server");
+const regionObj = require("../../server");
 
 router.get("/", (req, res) => {
     res.render("home", {

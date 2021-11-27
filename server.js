@@ -49,14 +49,14 @@ app.use("/error", (req, res) => {
 });
 
 // This middleware handles the render of the first page
-app.use(`/:id`, urlencodedParser, require("./routes/homepageHandler"));
+app.use(`/:id`, urlencodedParser, require('./routes/home/home.controller'));
 
 // The second middleware will fetch the champions from the
 // ./routes/api/champions then render it
-app.use(`/:id/champions`, require("./routes/champageHandler"));
+app.use(`/:id/champions`, require('./routes/champions/champions.controller'));
 
-// This middlware will be used when the user enters a random route
-app.use(`/:id/player/:id`, require("./routes/playerpageHandler"));
+// This middlware will be used when the user searches a player
+app.use(`/:id/player/:id`, require("./routes/player/player.controller"));
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

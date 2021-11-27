@@ -1,10 +1,9 @@
-const e = require("express");
 const express = require("express");
-const LeagueStats = require("../helper/leagueStats");
+const LeagueStats = require("../../helper/leagueStats");
 const router = express.Router();
-const regionObj = require("../server");
-const Process = require("../util/process");
-const riotAPI = require("../util/riotAPI");
+const regionObj = require("../../server");
+const Process = require("../../util/process");
+const riotAPI = require("../../util/riotAPI");
 
 // let summonerName;
 let found;
@@ -42,7 +41,6 @@ router.get("/", async (req, res, next) => {
         userInfo.wr = LeagueStats.getWinrate(userInfo.wins, userInfo.losses);
         userInfo.tier = LeagueStats.capitaliseWord(userInfo.tier);
         userInfo.icon = passedData.profileIconId;
-        console.log(userInfo)
 
         // Retrives the match history
         const matches = await riotAPI
@@ -60,7 +58,6 @@ router.get("/", async (req, res, next) => {
             games = games[0];
         }
     } catch (err) {
-        console.log(err);
         if (err === "Rate Limit Exceeded") {
             limitReached = true;
         }
