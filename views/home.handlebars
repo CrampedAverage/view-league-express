@@ -4,7 +4,7 @@
     <div>view:</div>
     <div class="typing"></div>
 </div>
-<form class="search-field" action='{{region}}' method="POST">
+<form class="search-field" action='/' method="POST">
     <input id="text-field" type="text" name="summoner" placeholder="view Summoners" required/>
     <input id="submit-field" type="submit" name="nothing" value="Submit"/>
 </form>
@@ -14,7 +14,7 @@
 <section class="server-change">
     <h2 class="region-title">Regions</h2>
     <h2 class="close-regions">X</h2>
-    <form class="server-field" method="post" action="/">
+    <form class="server-field" method="post" action="{{region}}">
         <ul class="region-list">
             <li>
                 <input type="radio" id="euw" name="region" value="euw" required>
@@ -68,4 +68,4 @@
         
     </form>
 </section>
-<script src="js/homeScript.js"></script>
+<script src="/javascripts/homeScript.js"></script>
