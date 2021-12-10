@@ -13,4 +13,8 @@ router.get("/", championsMiddleware, (req, res) => {
     });
 });
 
+
+router.get("/:id", (req, res) => {
+    res.send("champion" + req.params.id)
+})
 module.exports = router;

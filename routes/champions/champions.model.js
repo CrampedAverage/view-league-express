@@ -1,10 +1,10 @@
-const riotAPI = require("../../util/riotAPI");
+const RiotAPI = require("../../api/RiotAPI");
 
 // This middleware is responsible for fetching the champions from the API
 const championsMiddleware = async (req, res, next) => {
   let response;
   try {
-    response = await riotAPI.championList();
+    response = await RiotAPI.championList();
   } catch(err) {
     response = err;
   }
