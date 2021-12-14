@@ -1,5 +1,4 @@
 require("dotenv").config();
-const { json } = require("express");
 const fetch = require("node-fetch");
 
 const apiKey = process.env.API_KEY;
@@ -10,7 +9,7 @@ async function fetchUrl(url) {
     return data;
 }
 
-class riotAPI {
+class RiotAPI {
     static async getVersion() {
         const url = "https://ddragon.leagueoflegends.com/api/versions.json";
         const data = await fetchUrl(url);
@@ -60,4 +59,4 @@ class riotAPI {
     }
 }
 
-module.exports = riotAPI;
+module.exports = RiotAPI;
