@@ -38,15 +38,26 @@ class RiotAPI {
         const data = await fetchUrl(url);
         return data;
     }
-
-    static async matches(region, accID, end) {
-        const url = `https://${region}.api.riotgames.com/lol/match/v4/matchlists/by-account/${accID}?endIndex=${end}&api_key=${apiKey}`;
+    /**
+     * MATCH-V5 - Get a list of match ids by puuid
+     * @param {string} continent 
+     * @param {uuid} puuid 
+     * @param {int} end 
+     * @returns list of match ids
+     */
+    static async matches(continent, puuid) {
+        const url = `https://${continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}?api_key=${apiKey}`;
         const data = await fetchUrl(url);
         return data;
-    }
-
-    static async match(matchId) {
-        const url = `https://euw1.api.riotgames.com/lol/match/v4/matches/${matchId}?api_key=${apiKey}`;
+       }
+    /**
+     * MATCH-V5 - Get a response object with full information on match
+     * @param {string} continent 
+     * @param {uuid} matchId 
+     * @returns object of match information
+     */
+    static async match(continent, matchId) {
+        const url = `https://${continent}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${apiKey}`;
         const data = await fetchUrl(url);
         return data;
     }
