@@ -72,11 +72,12 @@ class RiotAPI {
 
     /**
      * LEAGUE-V4 - Get an array of user's ranks and rank info
+     * @param {string} region 
      * @param {uuid} sumID 
      * @returns Array of user's rank info
      */
-    static async getUserRank(sumID) {
-        const url = `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${sumID}?api_key=${apiKey}`;
+    static async getUserRank(region, sumID) {
+        const url = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${sumID}?api_key=${apiKey}`;
         let data = await fetchUrl(url);
         data = data[0];
         return data;
