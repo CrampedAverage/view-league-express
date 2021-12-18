@@ -33,11 +33,18 @@ class RiotAPI {
         return data;
     }
 
+    /**
+     * SUMMONER-V4 - Get player information using summoner name
+     * @param {string} region 
+     * @param {string} sumName 
+     * @returns User's info and uuids
+     */
     static async summonerID(region, sumName) {
         const url = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${sumName}?api_key=${apiKey}`;
         const data = await fetchUrl(url);
         return data;
     }
+
     /**
      * MATCH-V5 - Get a list of match ids by puuid
      * @param {string} continent 
@@ -50,6 +57,7 @@ class RiotAPI {
         const data = await fetchUrl(url);
         return data;
        }
+
     /**
      * MATCH-V5 - Get a response object with full information on match
      * @param {string} continent 
@@ -62,6 +70,11 @@ class RiotAPI {
         return data;
     }
 
+    /**
+     * LEAGUE-V4 - Get an array of user's ranks and rank info
+     * @param {uuid} sumID 
+     * @returns Array of user's rank info
+     */
     static async getUserRank(sumID) {
         const url = `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${sumID}?api_key=${apiKey}`;
         let data = await fetchUrl(url);
