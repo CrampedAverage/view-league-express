@@ -12,20 +12,18 @@ router.get("/", (req, res) => {
     res.redirect(`/${region}`);
 });
 
-// Route when searching a player
-router.post("/", (req, res) => {
-    console.log(req.body)
-    res.redirect(`/player/${req.body.summoner}`);
-});
-
 router.get("/:region", (req, res) => {
-    // if (!regions[req.params.region]) return res.redirect('/error')
+    let region;
+    if (regions[req.params.region]) {
+        region = req.params.region;
+        res.cookie("region", region)
+    }
     
     res.render("home", {
         title: "viewLeague || View Players",
         name: "Home Page",
         style: "home.css",
-        region: req.cookies.region,
+        region: region ? region : req.cookies.region,
     });
     res.status(200)
 });
@@ -33,8 +31,8 @@ router.get("/:region", (req, res) => {
 // Changes the region
 router.post("/:region", (req, res) => {
     if (req.body.region) {
-        req.cookies.region = req.body.region;
-        let region = req.cookies.region
+        let region = req.body.region
+        res.cookie("region", region)
         return res.redirect(`${region}`);
     }
     res.status(400)
