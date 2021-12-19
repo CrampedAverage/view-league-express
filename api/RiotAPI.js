@@ -79,7 +79,6 @@ class RiotAPI {
     static async getUserRank(region, sumID) {
         const url = `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${sumID}?api_key=${apiKey}`;
         let data = await fetchUrl(url);
-        data = data[0];
         return data;
     }
 }
