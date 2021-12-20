@@ -1,18 +1,19 @@
-const apiResponseValidation = (statusCode) => {
-  let errorMessage;
+const apiResponseValidation = (statusCode, api) => {
+  let errorMessage = {};
   switch (statusCode) {
     case 400:
-      errorMessage = "Bad Request"
+      errorMessage.msg = "Bad Request"
       break;
     case 429:
-      errorMessage = "Rate Limit Exceeded";
+      errorMessage.msg = "Rate Limit Exceeded";
       break;
     case 404:
-      errorMessage = "Data Not Found";
+      errorMessage.msg = "Data Not Found";
       break;
     default:
-      errorMessage = "Server Error"; 
+      errorMessage.msg = "Server Error"; 
     }
+    errorMessage.api = api;
   return errorMessage
 }
 
