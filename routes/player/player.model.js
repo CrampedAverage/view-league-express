@@ -1,114 +1,55 @@
-// router.get("/:player-id", async (req, res, next) => {
-//   
-//   path = req.originalUrl.split("/")[3];
-//   region = req.originalUrl.split("/")[1];
-//   if (!(region in regionObj.regions)) {
-//       res.redirect("/error");
-//   }
-//   regionCode = regionObj.regions[region];
-//   summonerName = decodeURI(path);
-//   try {
-//       // Verify if user is found
-//       const passedData = await riotAPI.summonerID(regionCode, summonerName);
-//       if (passedData.status) {
-//           switch (passedData.status.status_code) {
-//               case 429:
-//                   throw "Rate Limit Exceeded";
-//               case 404:
-//                   throw "User Not Found";
-//               default:
-//                   throw "Error";
-//           }
-//       }
+const RiotAPI = require("../../api/RiotAPI");
+const apiResponseValidation = require("../../helper/errorValidation");
+const LeagueStats = require("../../helper/LeagueStats");
+const { user_ranks } = require("../../dto")
+const continents = require("../../util/continents");
+const regions = require("../../util/regions");
 
-//       limitReached = false;
-//       found = true;
-//       // Retrieves user Rank Pofile
+class Player {
+    constructor(summonerName, region) {
+        this.summonerName = summonerName;
+        this.region = regions[region];
+        this.continent = continents[region];
+        this.ids = {accountId: '', puuid: ''}
+        this.leagues = {ranked_solo: {}, ranked_flex: {}}
+        this.data = {}
+    }
 
-//       userInfo = await riotAPI.getUserRank(passedData.id);
-//       userInfo.wr = LeagueStats.getWinrate(userInfo.wins, userInfo.losses);
-//       userInfo.tier = LeagueStats.capitaliseWord(userInfo.tier);
-//       userInfo.icon = passedData.profileIconId;
+    async playerInfo() {
+        try {
+            const rawDataInfo = await RiotAPI.summonerID(this.region, this.summonerName)
+            if (rawDataInfo.status) throw apiResponseValidation(rawDataInfo.status.status_code, "player_info")
+            this.ids = {accountId: rawDataInfo.accountId, puuid: rawDataInfo.puuid, summId: rawDataInfo.id}
 
-//       // Retrives the match history
-//       const matches = await riotAPI
-//           .matches(regionCode, passedData.accountId, 10)
-//           .then((match) => match);
-//       if (matches) {
-//           const user = await new Process(passedData.accountId);
-//           const processedMatchInfo = await user.matchesInfo(matches);
-//           games = Object.values(await processedMatchInfo);
-//           for (let i = 0; i < games[0].length; i++) {
-//               let version = games[0][i];
-//               let gameStats = games[1][i];
-//               games[0][i] = { version, gameStats };
-//           }
-//           games = games[0];
-//       }
-//   } catch (err) {
-//       if (err === "Rate Limit Exceeded") {
-//           limitReached = true;
-//       }
-//       if (err === "User Not Found") {
-//           found = false;
-//       }
-//   }
-//   next();
-// });
+            const rawDataRanks = await RiotAPI.getUserRank(this.region, this.ids.summId)
+            if (rawDataRanks.status) throw apiResponseValidation(rawDataRanks.status.status_code, "player_ranks")
 
-const playerInfoMiddleware = async (req, res, next) => {
-  const summonerName = req.params.id
-  const region = req.cookies.region
-  const regionCode = regionObj.regions[region];
+            rawDataRanks.forEach(league => {
+                if (league.queueType === "RANKED_SOLO_5x5") this.leagues.ranked_solo = user_ranks(league)
+                if (league.queueType === "RANKED_FLEX_SR") this.leagues.ranked_flex = user_ranks(league)
+            })
 
-
-  try {
-      // Verify if user is found
-      const passedData = await riotAPI.summonerID(regionCode, summonerName);
-      if (passedData.status) {
-          switch (passedData.status.status_code) {
-              case 429:
-                  throw "Rate Limit Exceeded";
-              case 404:
-                  throw "User Not Found";
-              default:
-                  throw "Error";
-          }
-      }
-
-      const limitReached = false;
-      let found = true;
-      // Retrieves user Rank Pofile
-
-      let userInfo = await riotAPI.getUserRank(passedData.id);
-      userInfo.wr = LeagueStats.getWinrate(userInfo.wins, userInfo.losses);
-      userInfo.tier = LeagueStats.capitaliseWord(userInfo.tier);
-      userInfo.icon = passedData.profileIconId;
-
-      // Retrives the match history
-      const matches = await riotAPI
-          .matches(regionCode, passedData.accountId, 10)
-          .then((match) => match);
-      if (matches) {
-          const user = await new Process(passedData.accountId);
-          const processedMatchInfo = await user.matchesInfo(matches);
-          const games = Object.values(await processedMatchInfo);
-          for (let i = 0; i < games[0].length; i++) {
-              let version = games[0][i];
-              let gameStats = games[1][i];
-              games[0][i] = { version, gameStats };
-          }
-          games = games[0];
-      }
-  } catch (err) {
-      if (err === "Rate Limit Exceeded") {
-          limitReached = true;
-      }
-      if (err === "User Not Found") {
-          found = false;
-      }
-  }
-    next();
+            this.data = {
+                summonerName: this.summonerName,
+                league: this.leagues,
+                icon: rawDataInfo.profileIconId,
+                level: rawDataInfo.summonerLevel,
+                found: true,
+                limitReached: false
+            }
+        }
+        catch (err) {
+            switch (err.msg) {
+                case "Data Not Found":
+                    this.data.found = false;
+                    break
+                case "Rate Limit Exceeded":
+                    this.data.limitReached = true;
+                    break;
+                }
+        }
+        return this.data
+    }
 }
 
-module.exports = playerInfoMiddleware;
+module.exports = Player;
