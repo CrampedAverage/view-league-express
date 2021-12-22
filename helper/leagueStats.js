@@ -1,4 +1,11 @@
 class LeagueStats {
+    /**
+     * LeagueStats - Method to calulcate Kills and Assists over Deaths
+     * @param {Number} kills 
+     * @param {Number} assists 
+     * @param {String} deaths 
+     * @returns {Number} KDA in 2 decimal points
+     */
     static getKDA(kills, assists, deaths) {
         let kda = kills + assists;
         kda = kda / deaths;
@@ -8,6 +15,12 @@ class LeagueStats {
         return kda;
     }
 
+    /**
+     * LeagueStats - Method to calulcate Creep Score per Minute
+     * @param {Number} cs 
+     * @param {Number} rawTime 
+     * @returns {Number} CSPM in 1 decimal point
+     */
     static getCSPM(cs, rawTime) {
         let cspm = cs / (rawTime / 60);
 
@@ -17,6 +30,13 @@ class LeagueStats {
         return cspm;
     }
 
+    /**
+     * LeagueStats - Method to calulcate Kills Participation
+     * @param {Number} kills 
+     * @param {Number} totalKills 
+     * @param {Number} assists 
+     * @returns {Number} KPA to 0 decimal points
+     */
     static getKPA(kills, totalKills, assists) {
         let kpa = ((kills + assists) / totalKills) * 100;
         kpa = kpa.toFixed(0);
@@ -25,6 +45,12 @@ class LeagueStats {
         return kpa;
     }
 
+    /**
+     * LeagueStats - Method to calculate Total Kills in player's team
+     * @param {Number} match 
+     * @param {Object} playerData 
+     * @returns {Number} totalKills
+     */
     static getTotalKills(match, playerData) {
         const totalTeamKills = match.participants.map((player) => {
             if (playerData.teamId == player.teamId) {
@@ -37,6 +63,12 @@ class LeagueStats {
         return totalKills;
     }
 
+    /**
+     * LeagueStats - Method to calculate the Winrate percentage
+     * @param {Number} wins 
+     * @param {Number} losses 
+     * @returns {Number} wr
+     */
     static getWinrate(wins, losses) {
         let wr = wins / (wins + losses);
         wr = wr * 100;
@@ -44,7 +76,11 @@ class LeagueStats {
 
         return wr;
     }
-
+    /**
+     * LeagueStats - Method to capitalise any word 
+     * @param {String} word 
+     * @returns {String} newWord
+     */
     static capitaliseWord(word) {
         let newWord = word.toLowerCase();
         newWord = newWord.split("");
