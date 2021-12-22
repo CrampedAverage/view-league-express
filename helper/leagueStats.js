@@ -25,10 +25,10 @@ class LeagueStats {
         return kpa;
     }
 
-    static getTotalKills(match, playerInfo) {
+    static getTotalKills(match, playerData) {
         const totalTeamKills = match.participants.map((player) => {
-            if (playerInfo.teamId == player.teamId) {
-                return player.stats.kills;
+            if (playerData.teamId == player.teamId) {
+                return player.kills;
             }
             return 0;
         });
