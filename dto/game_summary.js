@@ -2,7 +2,7 @@ const LeagueStats = require("../helper/LeagueStats");
 
 function game_summary(data, playerIndex) {
   const playerData = data.participants[playerIndex]
-  
+
   const dto = {
     champion: playerData.championName,
     win: playerData.win,
@@ -20,6 +20,14 @@ function game_summary(data, playerIndex) {
       playerData.assists,
       playerData.deaths
     ),
+    kpa: LeagueStats.getKPA(
+     playerData.kills,
+     LeagueStats.getTotalKills(data, playerData),
+     playerData.assists
+    ),
+    level: playerData.champLevel,
+    cs: playerData.neutralMinionsKilled + playerData.totalMinionsKilled,
+    cspm: '',
   }
 
   return dto
