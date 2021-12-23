@@ -1,114 +1,91 @@
-// router.get("/:player-id", async (req, res, next) => {
-//   
-//   path = req.originalUrl.split("/")[3];
-//   region = req.originalUrl.split("/")[1];
-//   if (!(region in regionObj.regions)) {
-//       res.redirect("/error");
-//   }
-//   regionCode = regionObj.regions[region];
-//   summonerName = decodeURI(path);
-//   try {
-//       // Verify if user is found
-//       const passedData = await riotAPI.summonerID(regionCode, summonerName);
-//       if (passedData.status) {
-//           switch (passedData.status.status_code) {
-//               case 429:
-//                   throw "Rate Limit Exceeded";
-//               case 404:
-//                   throw "User Not Found";
-//               default:
-//                   throw "Error";
-//           }
-//       }
+const RiotAPI = require("../../api/RiotAPI");
+const apiResponseValidation = require("../../helper/errorValidation");
+const LeagueStats = require("../../helper/LeagueStats");
+const { user_ranks } = require("../../dto");
+const continents = require("../../util/continents");
+const regions = require("../../util/regions");
+const Games = require("../../helper/Games");
 
-//       limitReached = false;
-//       found = true;
-//       // Retrieves user Rank Pofile
-
-//       userInfo = await riotAPI.getUserRank(passedData.id);
-//       userInfo.wr = LeagueStats.getWinrate(userInfo.wins, userInfo.losses);
-//       userInfo.tier = LeagueStats.capitaliseWord(userInfo.tier);
-//       userInfo.icon = passedData.profileIconId;
-
-//       // Retrives the match history
-//       const matches = await riotAPI
-//           .matches(regionCode, passedData.accountId, 10)
-//           .then((match) => match);
-//       if (matches) {
-//           const user = await new Process(passedData.accountId);
-//           const processedMatchInfo = await user.matchesInfo(matches);
-//           games = Object.values(await processedMatchInfo);
-//           for (let i = 0; i < games[0].length; i++) {
-//               let version = games[0][i];
-//               let gameStats = games[1][i];
-//               games[0][i] = { version, gameStats };
-//           }
-//           games = games[0];
-//       }
-//   } catch (err) {
-//       if (err === "Rate Limit Exceeded") {
-//           limitReached = true;
-//       }
-//       if (err === "User Not Found") {
-//           found = false;
-//       }
-//   }
-//   next();
-// });
-
-const playerInfoMiddleware = async (req, res, next) => {
-  const summonerName = req.params.id
-  const region = req.cookies.region
-  const regionCode = regionObj.regions[region];
-
-
-  try {
-      // Verify if user is found
-      const passedData = await riotAPI.summonerID(regionCode, summonerName);
-      if (passedData.status) {
-          switch (passedData.status.status_code) {
-              case 429:
-                  throw "Rate Limit Exceeded";
-              case 404:
-                  throw "User Not Found";
-              default:
-                  throw "Error";
-          }
-      }
-
-      const limitReached = false;
-      let found = true;
-      // Retrieves user Rank Pofile
-
-      let userInfo = await riotAPI.getUserRank(passedData.id);
-      userInfo.wr = LeagueStats.getWinrate(userInfo.wins, userInfo.losses);
-      userInfo.tier = LeagueStats.capitaliseWord(userInfo.tier);
-      userInfo.icon = passedData.profileIconId;
-
-      // Retrives the match history
-      const matches = await riotAPI
-          .matches(regionCode, passedData.accountId, 10)
-          .then((match) => match);
-      if (matches) {
-          const user = await new Process(passedData.accountId);
-          const processedMatchInfo = await user.matchesInfo(matches);
-          const games = Object.values(await processedMatchInfo);
-          for (let i = 0; i < games[0].length; i++) {
-              let version = games[0][i];
-              let gameStats = games[1][i];
-              games[0][i] = { version, gameStats };
-          }
-          games = games[0];
-      }
-  } catch (err) {
-      if (err === "Rate Limit Exceeded") {
-          limitReached = true;
-      }
-      if (err === "User Not Found") {
-          found = false;
-      }
+class Player {
+  constructor(summonerName, region) {
+    this.summonerName = summonerName;
+    this.region = regions[region];
+    this.continent = continents[region];
+    this.ids = { accountId: "", puuid: "" };
+    this.leagues = { ranked_solo: {}, ranked_flex: {} };
+    this.userInfo = {};
+    this.userMatches = {};
   }
-    next();
+
+  async playerInfo() {
+    try {
+      const rawDataInfo = await RiotAPI.summonerID(
+        this.region,
+        this.summonerName
+      );
+      if (rawDataInfo.status)
+        throw apiResponseValidation(
+          rawDataInfo.status.status_code,
+          "player_info"
+        );
+      this.ids = {
+        accountId: rawDataInfo.accountId,
+        puuid: rawDataInfo.puuid,
+        summId: rawDataInfo.id,
+      };
+
+      const rawDataRanks = await RiotAPI.getUserRank(
+        this.region,
+        this.ids.summId
+      );
+      if (rawDataRanks.status)
+        throw apiResponseValidation(
+          rawDataRanks.status.status_code,
+          "player_ranks"
+        );
+
+      rawDataRanks.forEach((league) => {
+        if (league.queueType === "RANKED_SOLO_5x5")
+          this.leagues.ranked_solo = user_ranks(league);
+        if (league.queueType === "RANKED_FLEX_SR")
+          this.leagues.ranked_flex = user_ranks(league);
+      });
+
+      this.userInfo = {
+        summonerName: this.summonerName,
+        league: this.leagues,
+        icon: rawDataInfo.profileIconId,
+        level: rawDataInfo.summonerLevel,
+        found: true,
+        limitReached: false,
+      };
+    } catch (err) {
+      switch (err.msg) {
+        case "Data Not Found":
+          this.userInfo.found = false;
+          break;
+        case "Rate Limit Exceeded":
+          this.userInfo.limitReached = true;
+          break;
+      }
+    }
+    return this.userInfo;
+  }
+
+  async playerMatches() {
+    try {
+      if (!this.userInfo.found) throw { msg: "No User" };
+      if (this.userInfo.limitReached) throw { msg: "Limit Reached" };
+
+      const { puuid } = this.ids;
+      const playerGames = new Games(puuid, this.continent);
+      this.userMatches = await playerGames.getMatches(10);
+    } catch (err) {
+      console.log(err);
+      switch (err.msg) {
+      }
+    }
+  }
 }
 
-module.exports = playerInfoMiddleware;
+module.exports = Player;

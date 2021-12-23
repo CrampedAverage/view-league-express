@@ -1,48 +1,48 @@
 const express = require("express");
-const LeagueStats = require("../../helper/leagueStats");
 const router = express.Router();
-const regionObj = require("../../server");
-const Process = require("../../helper/Process");
-const riotAPI = require("../../api/RiotAPI");
-
-// let summonerName;
-let found;
-let limitReached = false;
-let games;
-let userInfo;
+const PlayerModel = require("./player.model.js");
 
 router.get("/", (req, res) => {
-    res.send("he12321he")
-})
+  res.send("he12321he");
+});
 
-router.get("/:playerId", (req, res) => {
-    let obj;
-    let location;
-    if (found) {
-        location = "player";
-        obj = {
-            title: `${summonerName} || viewLeague`,
-            name: summonerName,
-            style: "player.css",
-            games: games,
-            user: userInfo,
-            region: req.cookies.region,
-        };
-    }
-    if (!found) {
-        location = "noUser";
-        obj = {
-            title: `Not Found || viewLeague`,
-            style: "none.css",
-            region: req.cookies.region,
-        };
-    }
-    res.status(200);
-    res.render(location, obj);
+// Route when searching a player
+router.post("/", (req, res) => {
+  res.redirect(`/player/${req.body.summoner}`);
+});
+
+router.get("/:playerName", async (req, res) => {
+  // Basic player informations
+  const Player = new PlayerModel(req.params.playerName, req.cookies.region);
+  playerInfo = await Player.playerInfo();
+  playerMatches = Player.playerMatches();
+  let obj;
+  let location;
+  if (playerInfo.found) {
+    location = "player";
+    obj = {
+      title: `${playerInfo.summonerName} || viewLeague`,
+      name: playerInfo.summonerName,
+      style: "player.css",
+      games: [],
+      user: playerInfo,
+      region: req.cookies.region,
+    };
+  }
+  if (!playerInfo.found) {
+    location = "noUser";
+    obj = {
+      title: `Not Found || viewLeague`,
+      style: "none.css",
+      region: req.cookies.region,
+    };
+  }
+  res.status(200);
+  res.render(location, obj);
 });
 
 router.get("/not-found", (req, res) => {
-    res.send("wss");
+  res.send("wss");
 });
 
 module.exports = router;
