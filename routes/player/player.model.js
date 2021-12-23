@@ -4,6 +4,7 @@ const LeagueStats = require("../../helper/LeagueStats");
 const { user_ranks } = require("../../dto")
 const continents = require("../../util/continents");
 const regions = require("../../util/regions");
+const Games = require("../../helper/Games");
 
 class Player {
     constructor(summonerName, region) {
@@ -12,7 +13,8 @@ class Player {
         this.continent = continents[region];
         this.ids = {accountId: '', puuid: ''}
         this.leagues = {ranked_solo: {}, ranked_flex: {}}
-        this.data = {}
+        this.userInfo = {}
+        this.userMatches = {}
     }
 
     async playerInfo() {
@@ -29,7 +31,7 @@ class Player {
                 if (league.queueType === "RANKED_FLEX_SR") this.leagues.ranked_flex = user_ranks(league)
             })
 
-            this.data = {
+            this.userInfo = {
                 summonerName: this.summonerName,
                 league: this.leagues,
                 icon: rawDataInfo.profileIconId,
@@ -41,14 +43,30 @@ class Player {
         catch (err) {
             switch (err.msg) {
                 case "Data Not Found":
-                    this.data.found = false;
+                    this.userInfo.found = false;
                     break
                 case "Rate Limit Exceeded":
-                    this.data.limitReached = true;
+                    this.userInfo.limitReached = true;
                     break;
                 }
         }
-        return this.data
+        return this.userInfo
+    }
+
+    async playerMatches() {
+        try {
+            if (!this.userInfo.found) throw { msg: "No User" }
+            if (this.userInfo.limitReached) throw { msg: "Limit Reached" }
+
+            const { puuid } = this.ids
+            const playerGames = new Games(puuid, this.continent)
+            this.userMatches = await playerGames.getMatches(10)
+        } catch(err) {
+            console.log(err)
+            switch (err.msg) {
+
+            }
+        }
     }
 }
 
