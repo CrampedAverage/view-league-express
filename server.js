@@ -5,24 +5,23 @@ const exphbs = require("express-handlebars");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 
-
 const hbs = exphbs.create({
-    defaultLayout: "main",
-    layoutsDir: path.join(__dirname, "views/layouts"),
-    layout: "main",
-    partialsDir: path.join(__dirname, "views/partials"),
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "views/layouts"),
+  layout: "main",
+  partialsDir: path.join(__dirname, "views/partials"),
 });
 const options = {
-    dotfiles: 'ignore',
-    etag: false,
-    extensions: ['htm', 'html'],
-    index: false,
-    maxAge: '1d',
-    redirect: false,
-    setHeaders: function (res, path, stat) {
-    res.set('x-timestamp', Date.now())
-    }
-}
+  dotfiles: "ignore",
+  etag: false,
+  extensions: ["htm", "html"],
+  index: false,
+  maxAge: "1d",
+  redirect: false,
+  setHeaders: function (res, path, stat) {
+    res.set("x-timestamp", Date.now());
+  },
+};
 
 // create application/json parser
 let jsonParser = express.json();
@@ -40,12 +39,11 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use("/error", (req, res) => {
-    res.send("123");
+  res.send("123");
 });
 
 routes(app, { urlencodedParser, jsonParser });
 
-
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });

@@ -2,83 +2,83 @@
 /********* PLAYER INFO *********/
 /*********             *********/
 .player-info-container {
-    display: flex;
-    width: 1360px;
-    margin: 0px auto;
-    padding: 80px 0px;
+  display: flex;
+  width: 1360px;
+  margin: 0px auto;
+  padding: 80px 0px;
 }
 
 .profile {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .rank {
-    background-color: #183445;
-    width: 450px;
-    margin-left: auto;
-    padding: 9px;
-    border: 1px solid #fff;
-    border-radius: 10px;
+  background-color: #183445;
+  width: 450px;
+  margin-left: auto;
+  padding: 9px;
+  border: 1px solid #fff;
+  border-radius: 10px;
 }
 
 .rank > div {
-    display: flex;
+  display: flex;
 }
 .rank > div:first-child {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    padding: 5px 20px;
-    font-size: 1.2rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 5px 20px;
+  font-size: 1.2rem;
 }
 
 .total-games {
-    margin-right: auto;
+  margin-right: auto;
 }
 .rank > div:nth-child(2) {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .sum-icon,
 .rank-border {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 
 .rank-title {
-    margin: 0px 10px 0px 20px;
+  margin: 0px 10px 0px 20px;
 }
 
 .player-name {
-    max-width: 400px;
-    word-break: break-all;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    margin-left: 30px;
+  max-width: 400px;
+  word-break: break-all;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 30px;
 }
 
 .tab {
-    display: flex;
-    width: 1360px;
-    margin: 60px auto 10px auto;
+  display: flex;
+  width: 1360px;
+  margin: 60px auto 10px auto;
 }
 
 .tab > :first-child {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .tab > div {
-    border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .tab > div:hover {
-    cursor: pointer;
-    color: #1e5678;
-    border-bottom: 1px solid #1e5678;
+  cursor: pointer;
+  color: #1e5678;
+  border-bottom: 1px solid #1e5678;
 }
 
 /*********                      *********/
@@ -86,9 +86,9 @@
 /*********                      *********/
 
 section {
-    display: flex;
-    margin: 0px auto;
-    width: 1360px;
+  display: flex;
+  margin: 0px auto;
+  width: 1360px;
 }
 
 /*********                *********/
@@ -96,88 +96,88 @@ section {
 /*********                *********/
 
 .match-history-container {
-    width: 840px;
-    background: #183445;
-    border: 1px solid black;
+  width: 840px;
+  background: #183445;
+  border: 1px solid black;
 }
 
 .title {
-    width: 400px;
-    max-width: 50%;
-    border-bottom: 1px solid #fff;
-    margin: 0px auto;
-    padding: 15px 0px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+  width: 400px;
+  max-width: 50%;
+  border-bottom: 1px solid #fff;
+  margin: 0px auto;
+  padding: 15px 0px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .match-history {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #132028;
-    width: 90%;
-    height: 110px;
-    margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #132028;
+  width: 90%;
+  height: 110px;
+  margin: 10px auto;
 }
 
 #type-of-game,
 .KDA,
 .player-stats {
-    padding: 0px 10px;
-    font-size: 0.9rem;
+  padding: 0px 10px;
+  font-size: 0.9rem;
 }
 
 #type-of-game > div {
-    text-align: center;
+  text-align: center;
 }
 
 #space {
-    border-bottom: 1px solid white;
-    padding-bottom: 10px;
-    width: 99px;
-    margin: 0px auto 10px auto;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+  width: 99px;
+  margin: 0px auto 10px auto;
 }
 
 #champion-played {
-    height: 100%;
-    width: 80px;
-    padding: 10px 10px;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  width: 80px;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .champion-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 1px solid white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid white;
 }
 
 .deaths {
-    color: rgb(187, 88, 88);
+  color: rgb(187, 88, 88);
 }
 
 .player-stats div {
-    text-align: center;
-    margin: 10px auto 5px auto;
+  text-align: center;
+  margin: 10px auto 5px auto;
 }
 
 #items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    height: fit-content;
-    width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: fit-content;
+  width: 120px;
 }
 
 #items img {
-    width: 35px;
-    height: 35px;
-    border: 1px solid white;
-    margin: 2px 2px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid white;
+  margin: 2px 2px;
 }
 
 /*********            *********/
@@ -185,214 +185,214 @@ section {
 /*********            *********/
 
 .champions {
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-    justify-content: space-around;
-    width: 450px;
-    height: 270px;
-    background-color: #183445;
-    margin-left: auto;
-    padding: 10px;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: space-around;
+  width: 450px;
+  height: 270px;
+  background-color: #183445;
+  margin-left: auto;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .champions li {
-    background-color: #132028;
-    display: flex;
-    align-items: center;
-    padding: 1px;
+  background-color: #132028;
+  display: flex;
+  align-items: center;
+  padding: 1px;
 }
 
 .champions li > :nth-child(2) {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .champ-img {
-    height: 30px;
-    width: 30px;
-    margin: 0px 5px 0px 5px;
-    border-radius: 50%;
-    border: 1px solid white;
+  height: 30px;
+  width: 30px;
+  margin: 0px 5px 0px 5px;
+  border-radius: 50%;
+  border: 1px solid white;
 }
 
 .num-of-games,
 .kda {
-    font-size: 0.8rem;
-    text-align: center;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .wr {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .champ-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1720px) {
-    section,
-    .tab,
-    .player-info-container {
-        width: 1300px;
-    }
+  section,
+  .tab,
+  .player-info-container {
+    width: 1300px;
+  }
 }
 
 @media screen and (max-width: 1580px) {
-    .rank,
-    .champions {
-        width: 400px;
-    }
-    section,
-    .tab,
-    .player-info-container {
-        width: 1000px;
-    }
-    .match-history-container {
-        width: 580px;
-    }
+  .rank,
+  .champions {
+    width: 400px;
+  }
+  section,
+  .tab,
+  .player-info-container {
+    width: 1000px;
+  }
+  .match-history-container {
+    width: 580px;
+  }
 
-    #type-of-game,
-    .player-stats {
-        font-size: 0.72rem;
-    }
+  #type-of-game,
+  .player-stats {
+    font-size: 0.72rem;
+  }
 }
 
 @media screen and (max-width: 1280px) {
-    .rank,
-    .champions {
-        width: 350px;
-    }
-    .player-info-container {
-        padding-top: 50px;
-    }
+  .rank,
+  .champions {
+    width: 350px;
+  }
+  .player-info-container {
+    padding-top: 50px;
+  }
 
-    .match-history-container {
-        width: 520px;
-    }
-    #space {
-        width: 70px;
-        margin: 0px auto 6px auto;
-        padding-bottom: 6px;
-    }
+  .match-history-container {
+    width: 520px;
+  }
+  #space {
+    width: 70px;
+    margin: 0px auto 6px auto;
+    padding-bottom: 6px;
+  }
 
-    #type-of-game {
-        width: 100px;
-    }
+  #type-of-game {
+    width: 100px;
+  }
 
-    #type-of-game,
-    .player-stats {
-        padding: 10px 5px;
-        font-size: 0.6rem;
-    }
+  #type-of-game,
+  .player-stats {
+    padding: 10px 5px;
+    font-size: 0.6rem;
+  }
 
-    section,
-    .tab,
-    .player-info-container {
-        width: 980px;
-    }
+  section,
+  .tab,
+  .player-info-container {
+    width: 980px;
+  }
 }
 
 @media screen and (max-width: 950px) {
-    .player-name {
-        font-size: 1.5rem;
-        max-width: 200px;
-    }
+  .player-name {
+    font-size: 1.5rem;
+    max-width: 200px;
+  }
 
-    .rank,
-    .champions {
-        width: 250px;
-    }
+  .rank,
+  .champions {
+    width: 250px;
+  }
 
-    section,
-    .tab,
-    .player-info-container {
-        width: 760px;
-    }
+  section,
+  .tab,
+  .player-info-container {
+    width: 760px;
+  }
 
-    .match-history-container {
-        width: 480px;
-    }
+  .match-history-container {
+    width: 480px;
+  }
 
-    #champion-played {
-        width: 60px;
-        height: 60px;
-    }
+  #champion-played {
+    width: 60px;
+    height: 60px;
+  }
 
-    #items {
-        display: none;
-    }
+  #items {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    section {
-        flex-direction: column-reverse;
-    }
-    section,
-    .tab,
-    .player-info-container {
-        width: 560px;
-    }
-    .match-history-container {
-        width: 100%;
-    }
-    .tab {
-        width: 350px;
-        margin-top: 20px;
-    }
+  section {
+    flex-direction: column-reverse;
+  }
+  section,
+  .tab,
+  .player-info-container {
+    width: 560px;
+  }
+  .match-history-container {
+    width: 100%;
+  }
+  .tab {
+    width: 350px;
+    margin-top: 20px;
+  }
 
-    .rank,
-    .champions {
-        width: 360px;
-    }
+  .rank,
+  .champions {
+    width: 360px;
+  }
 
-    .champions {
-        margin: 0px auto 20px auto;
-    }
+  .champions {
+    margin: 0px auto 20px auto;
+  }
 
-    .match-history > div {
-        margin: 0px auto;
-    }
+  .match-history > div {
+    margin: 0px auto;
+  }
 
-    #type-of-game {
-        margin-left: 0px;
-    }
+  #type-of-game {
+    margin-left: 0px;
+  }
 
-    .match-history {
-        height: 80px;
-    }
+  .match-history {
+    height: 80px;
+  }
 
-    #type-of-game,
-    .KDA,
-    .player-stats {
-        font-size: 0.5rem;
-        padding: 4px 0px;
-    }
+  #type-of-game,
+  .KDA,
+  .player-stats {
+    font-size: 0.5rem;
+    padding: 4px 0px;
+  }
 
-    #space {
-        width: 50px;
-        margin: 0px auto 3px auto;
-        padding-bottom: 3px;
-    }
+  #space {
+    width: 50px;
+    margin: 0px auto 3px auto;
+    padding-bottom: 3px;
+  }
 
-    #type-of-game {
-        width: 80px;
-    }
+  #type-of-game {
+    width: 80px;
+  }
 
-    .player-info-container {
-        flex-direction: column;
-    }
-    .profile {
-        width: fit-content;
-        margin: 0px auto 40px auto;
-    }
-    .rank {
-        width: 270px;
-        font-size: 0.8rem;
-        margin: 20px auto;
-    }
+  .player-info-container {
+    flex-direction: column;
+  }
+  .profile {
+    width: fit-content;
+    margin: 0px auto 40px auto;
+  }
+  .rank {
+    width: 270px;
+    font-size: 0.8rem;
+    margin: 20px auto;
+  }
 
-    .kpa {
-        display: none;
-    }
+  .kpa {
+    display: none;
+  }
 }

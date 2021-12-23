@@ -1,292 +1,292 @@
 .title,
 .slogan,
 .search-field {
-    margin: 0px auto;
-    color: #fff;
+  margin: 0px auto;
+  color: #fff;
 }
 
 /*** FORM ***/
 
 #text-field,
 #submit-field {
-    padding: 0px 20px;
-    transition: 0.5s ease;
+  padding: 0px 20px;
+  transition: 0.5s ease;
 }
 
 .search-field,
 #text-field,
 #submit-field {
-    background-color: #c4c4c4;
-    border-radius: 20px;
+  background-color: #c4c4c4;
+  border-radius: 20px;
 }
 
 .search-field {
-    position: relative;
-    width: 1080px;
-    height: 60px;
-    margin-top: 50px;
-    display: flex;
+  position: relative;
+  width: 1080px;
+  height: 60px;
+  margin-top: 50px;
+  display: flex;
 }
 
 #text-field {
-    width: 85%;
-    height: 100%;
-    position: relative;
-    left: 0;
+  width: 85%;
+  height: 100%;
+  position: relative;
+  left: 0;
 }
 
 #submit-field {
-    height: 105%;
-    width: fit-content;
-    position: absolute;
-    top: -2%;
-    right: 0;
-    cursor: pointer;
-    font-size: 1.2rem;
+  height: 105%;
+  width: fit-content;
+  position: absolute;
+  top: -2%;
+  right: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 
 #submit-field:hover {
-    background-color: #132028;
-    color: whitesmoke;
-    border: 1px solid whitesmoke;
-    transform: scale(1.1);
+  background-color: #132028;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  transform: scale(1.1);
 }
 
 #text-field:focus {
-    border: 2px solid black;
-    outline: none;
-    transform: scale(1.03);
-    background-color: #b4b4b4;
+  border: 2px solid black;
+  outline: none;
+  transform: scale(1.03);
+  background-color: #b4b4b4;
 }
 
 .title {
-    width: 800px;
-    height: 80px;
-    font-size: 3rem;
-    padding: 40px 121px;
-    text-align: center;
+  width: 800px;
+  height: 80px;
+  font-size: 3rem;
+  padding: 40px 121px;
+  text-align: center;
 }
 
 /*** SLOGAN ***/
 
 .slogan {
-    display: flex;
-    position: relative;
-    width: 450px;
-    margin-top: 200px;
-    font-size: 1.5rem;
-    height: 37px;
+  display: flex;
+  position: relative;
+  width: 450px;
+  margin-top: 200px;
+  font-size: 1.5rem;
+  height: 37px;
 }
 
 .slogan div:first-child {
-    text-align: end;
-    width: 35%;
+  text-align: end;
+  width: 35%;
 }
 
 .typing {
-    width: 65%;
-    margin-left: 10px;
-    text-align: start;
+  width: 65%;
+  margin-left: 10px;
+  text-align: start;
 }
 
 .typing::after {
-    content: "";
-    border: 1px solid white;
-    position: absolute;
-    top: 10%;
-    height: 60%;
-    margin-left: 3px;
+  content: "";
+  border: 1px solid white;
+  position: absolute;
+  top: 10%;
+  height: 60%;
+  margin-left: 3px;
 
-    animation: blink 0.5s infinite ease;
+  animation: blink 0.5s infinite ease;
 }
 
 .server-change {
-    display: none;
-    width: 640px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #183445;
+  display: none;
+  width: 640px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #183445;
 }
 
 .server-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .region-list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .region-list > li {
-    display: flex;
-    flex-direction: row-reverse;
-    position: relative;
-    width: 180px;
-    margin: 10px 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  width: 180px;
+  margin: 10px 10px;
 }
 
 .region-list > li > input {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .region-list > li > label {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .region-list > li:hover {
-    background-color: #132028;
+  background-color: #132028;
 }
 
 input[type="radio"] {
-    position: absolute;
-    cursor: pointer;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
-    border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
 }
 
 input[type="radio"]:checked {
-    background-color: #27536e;
+  background-color: #27536e;
 }
 
 li > label,
 li > input,
 li {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #save-field {
-    width: fit-content;
-    cursor: pointer;
-    text-align: center;
+  width: fit-content;
+  cursor: pointer;
+  text-align: center;
 }
 
 .region {
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: fit-content;
-    padding: 3px;
-    margin: 20px auto;
-    cursor: pointer;
-    background-color: #1a435b;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: fit-content;
+  padding: 3px;
+  margin: 20px auto;
+  cursor: pointer;
+  background-color: #1a435b;
 }
 
 .region:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .close-regions {
-    color: rgb(114, 114, 114);
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 1.7rem;
-    cursor: pointer;
+  color: rgb(114, 114, 114);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.7rem;
+  cursor: pointer;
 }
 
 @keyframes blink {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*** MEDIA QUERY ***/
 
 @media screen and (max-width: 1420px) {
-    .search-field {
-        width: 850px;
-    }
+  .search-field {
+    width: 850px;
+  }
 }
 
 @media screen and (max-width: 1280px) {
-    .search-field {
-        width: 720px;
-    }
+  .search-field {
+    width: 720px;
+  }
 
-    #text-field {
-        width: 78%;
-    }
+  #text-field {
+    width: 78%;
+  }
 }
 
 @media screen and (max-width: 840px) {
-    .server-change {
-        width: 480px;
-    }
+  .server-change {
+    width: 480px;
+  }
 
-    .region-list > li {
-        width: 120px;
-        margin: 10px 10px;
-        font-size: 0.8rem;
-    }
+  .region-list > li {
+    width: 120px;
+    margin: 10px 10px;
+    font-size: 0.8rem;
+  }
 
-    .title {
-        width: 480px;
-        font-size: 2.5rem;
-        padding: 40px 0px;
-    }
+  .title {
+    width: 480px;
+    font-size: 2.5rem;
+    padding: 40px 0px;
+  }
 
-    .slogan {
-        margin-top: 220px;
-    }
-    .search-field {
-        width: 520px;
-    }
+  .slogan {
+    margin-top: 220px;
+  }
+  .search-field {
+    width: 520px;
+  }
 
-    #text-field {
-        width: 75%;
-    }
+  #text-field {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 540px) {
-    .server-change {
-        width: 250px;
-    }
-    .region-list > li {
-        width: 100%;
-        margin: 7px 0px;
-        font-size: 0.8rem;
-    }
+  .server-change {
+    width: 250px;
+  }
+  .region-list > li {
+    width: 100%;
+    margin: 7px 0px;
+    font-size: 0.8rem;
+  }
 
-    .title {
-        width: 340px;
-        padding: 60px 0px;
-    }
+  .title {
+    width: 340px;
+    padding: 60px 0px;
+  }
 
-    .search-field {
-        width: 320px;
-        max-width: 80vw;
-    }
+  .search-field {
+    width: 320px;
+    max-width: 80vw;
+  }
 
-    #text-field {
-        width: 70%;
-    }
+  #text-field {
+    width: 70%;
+  }
 
-    #submit-field {
-        font-size: 0.8rem;
-    }
+  #submit-field {
+    font-size: 0.8rem;
+  }
 
-    .slogan {
-        width: 90%;
-    }
+  .slogan {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 340px) {
-    #text-field {
-        width: 60%;
-        font-size: 0.7rem;
-    }
+  #text-field {
+    width: 60%;
+    font-size: 0.7rem;
+  }
 }
