@@ -31,6 +31,17 @@ class LeagueStats {
     }
 
     /**
+     * LeagueStats - Method to calculate total creep score
+     * @param {Number} minionCS 
+     * @param {Number} monsterCS 
+     * @returns {Number} totalCS
+     */
+    static getCS(minionCS, monsterCS) {
+        let totalCS = minionCS + monsterCS;
+        
+        return totalCS;
+    }
+    /**
      * LeagueStats - Method to calulcate Kills Participation
      * @param {Number} kills 
      * @param {Number} totalKills 
