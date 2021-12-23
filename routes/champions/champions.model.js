@@ -5,11 +5,11 @@ const championsMiddleware = async (req, res, next) => {
   let response;
   try {
     response = await RiotAPI.championList();
-  } catch(err) {
+  } catch (err) {
     response = err;
   }
   req.data = response;
   next();
-}
+};
 
-module.exports = championsMiddleware
+module.exports = championsMiddleware;

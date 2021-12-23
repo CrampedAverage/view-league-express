@@ -1,145 +1,145 @@
 .title,
 .champions-container,
 .cover {
-    margin: 0px auto;
-    color: #fff;
+  margin: 0px auto;
+  color: #fff;
 }
 
 .title {
-    width: 400px;
-    height: 20vh;
-    font-size: 3rem;
-    padding: 40px 0px;
-    text-align: center;
+  width: 400px;
+  height: 20vh;
+  font-size: 3rem;
+  padding: 40px 0px;
+  text-align: center;
 }
 
 .champions-container {
-    width: 1500px;
-    height: 720px;
-    max-height: 70vh;
-    background-color: rgb(145, 145, 145);
-    padding: 25px;
-    border-radius: 20px;
+  width: 1500px;
+  height: 720px;
+  max-height: 70vh;
+  background-color: rgb(145, 145, 145);
+  padding: 25px;
+  border-radius: 20px;
 }
 
 .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
 }
 
 .champion {
-    display: flex;
-    flex-direction: column;
-    width: 120px;
-    height: 125px;
-    background-color: #132028;
-    margin: 10px 18px;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 125px;
+  background-color: #132028;
+  margin: 10px 18px;
+  border-radius: 10px;
 }
 
 .champion:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-    transition: 1s ease;
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 1s ease;
 }
 
 .champion-image {
-    width: 75px;
-    min-height: 75px;
-    margin: 10px auto;
-    background-color: #c4c4c4;
+  width: 75px;
+  min-height: 75px;
+  margin: 10px auto;
+  background-color: #c4c4c4;
 }
 
 .champion-name {
-    height: 30px;
-    width: 100%;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 1820px) {
-    .champions-container {
-        width: 1350px;
-    }
+  .champions-container {
+    width: 1350px;
+  }
 }
 
 @media screen and (max-width: 1720px) {
-    .champions-container {
-        width: 1200px;
-    }
+  .champions-container {
+    width: 1200px;
+  }
 }
 
 @media screen and (max-width: 1620px) {
-    .champions-container {
-        width: 1050px;
-    }
+  .champions-container {
+    width: 1050px;
+  }
 }
 
 @media screen and (max-width: 1520px) {
-    .champions-container {
-        width: 900px;
-    }
+  .champions-container {
+    width: 900px;
+  }
 }
 
 @media screen and (max-width: 980px) {
-    .champions-container {
-        width: 750px;
-    }
+  .champions-container {
+    width: 750px;
+  }
 }
 
 @media screen and (max-width: 860px) {
-    .champions-container {
-        width: 600px;
-    }
+  .champions-container {
+    width: 600px;
+  }
 }
 
 @media screen and (max-width: 620px) {
-    .title {
-        font-size: 2rem;
-        padding-top: 75px;
-        height: 130px;
-    }
-    .champions-container {
-        width: 420px;
-        max-width: 80vw;
-        padding: 15px;
-    }
+  .title {
+    font-size: 2rem;
+    padding-top: 75px;
+    height: 130px;
+  }
+  .champions-container {
+    width: 420px;
+    max-width: 80vw;
+    padding: 15px;
+  }
 
-    .champion {
-        width: 80px;
-        height: 90px;
-    }
+  .champion {
+    width: 80px;
+    height: 90px;
+  }
 
-    .champion-image {
-        width: 50px;
-        min-height: 50px;
-    }
+  .champion-image {
+    width: 50px;
+    min-height: 50px;
+  }
 
-    .champion-name {
-        height: 20px;
-        font-size: 14px;
-    }
+  .champion-name {
+    height: 20px;
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .champions-container {
-        padding: 10px;
-    }
-    .champion {
-        width: 64px;
-    }
+  .champions-container {
+    padding: 10px;
+  }
+  .champion {
+    width: 64px;
+  }
 
-    .champion-name {
-        width: 90%;
-        margin: 0px auto;
-    }
+  .champion-name {
+    width: 90%;
+    margin: 0px auto;
+  }
 }

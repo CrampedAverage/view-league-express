@@ -1,4 +1,4 @@
-const LeagueStats  = require("../helper/LeagueStats");
+const LeagueStats = require("../helper/LeagueStats");
 
 const user_ranks = (data) => {
   const dto = {
@@ -6,10 +6,10 @@ const user_ranks = (data) => {
     rank: data.rank,
     wins: data.wins,
     loss: data.losses,
-    wr: LeagueStats.getWinrate(data.wins, data.losses)
+    wr: LeagueStats.getWinrate(data.wins, data.losses),
   };
 
-  return dto 
-}
+  return dto;
+};
 
-module.exports = user_ranks
+module.exports = user_ranks;

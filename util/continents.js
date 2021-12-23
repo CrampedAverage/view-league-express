@@ -1,15 +1,15 @@
 const continents = {
-  euw: "europe", 
-  eune: "europe", 
+  euw: "europe",
+  eune: "europe",
   na: "AMERICAS",
-  jp: "ASIA",    
+  jp: "ASIA",
   lan: "AMERICAS",
   las: "AMERICAS",
   oce: "AMERICAS",
-  kr: "ASIA",     
-  ru: "europe",  
-  tr: "europe",  
-  br: "AMERICAS", 
-}
+  kr: "ASIA",
+  ru: "europe",
+  tr: "europe",
+  br: "AMERICAS",
+};
 
 module.exports = continents;
