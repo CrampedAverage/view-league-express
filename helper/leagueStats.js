@@ -41,7 +41,7 @@ class LeagueStats {
 
     return totalCS;
   }
-  
+
   /**
    * LeagueStats - Method to calulcate Kills Participation
    * @param {Number} kills
