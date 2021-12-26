@@ -21,15 +21,26 @@ class RiotAPI {
     const url =
       "http://ddragon.leagueoflegends.com/cdn/11.8.1/data/en_US/champion.json";
     let data = await fetchUrl(url);
-
     data = Object.values(data.data);
     return data;
   }
 
-  static async getChampion() {
+  static async getChampion(id) {
     const version = this.getVersion();
     const url = `https://cdn.communitydragon.org/${version}/champion/${id}/square`;
     const data = await fetchUrl(url);
+    return data;
+  }
+  
+  /**
+   * Static JSON - Get an array of different queues
+   * @param {number} queueId 
+   * @returns Queue Data Object
+   */
+  static async queues(queueId) { 
+    const url = `https://static.developer.riotgames.com/docs/lol/queues.json`;
+    let data = await fetchUrl(url);
+    data = data.find(data => data.queueId === queueId)
     return data;
   }
 
