@@ -1,5 +1,6 @@
 const RiotAPI = require("../api/RiotAPI");
 const game_summary = require("../dto/game_summary");
+const queueType = require("../util/queueType");
 const apiResponseValidation = require("./errorValidation");
 
 class Games {
@@ -12,7 +13,7 @@ class Games {
 
   /**
    * Returns a list of matches from the users match history
-   * @param {int} numberOfGames number of games to show in history
+   * @param {Number} numberOfGames number of games to show in history
    * @return list of detailed match
    **/
   async getMatches(numberOfGames = 10) {
@@ -28,8 +29,11 @@ class Games {
           "game_info"
         );
 
-      rawDataMatches.forEach(async (matchId, index) => {});
-      this.getGameSummary(rawDataMatches[0]);
+      rawDataMatches.forEach(async (matchId, index) => {
+        const gameData = this.getGameSummary(rawDataMatches)
+        this.matches.push(gameData)
+      });
+      this.getGameSummary(rawDataMatches)
     } catch (err) {
       console.log("error", err);
     }
@@ -41,26 +45,26 @@ class Games {
    * @returns
    */
   async #getGameSummary(matchId) {
-    let gameInfo = {};
+    let data;
     try {
       const rawGameInfo = await RiotAPI.match(this.continent, matchId);
       const { metadata, info } = rawGameInfo;
+      const gameType = await queueType(info.queueId);
+
       const playerIndex = metadata.participants.findIndex(
         (id) => id === this.puuid
       );
-      console.log(playerIndex);
       if (rawGameInfo.status)
         throw apiResponseValidation(
           rawGameInfo.status.status_code,
           "game_info"
         );
-      gameInfo.game = game_summary(info, playerIndex);
-      console.log(gameInfo.game);
+      data = game_summary(info, playerIndex, gameType);
     } catch (err) {
-      console.log(err);
+      data.error = true
     }
 
-    return [];
+    return data;
   }
 
   async matchesInfo(matchList) {
