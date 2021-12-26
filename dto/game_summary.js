@@ -1,64 +1,52 @@
 const LeagueStats = require("../helper/LeagueStats");
-const Time = require('../helper/Time')
+const Time = require('../helper/Time');
 
-function game_summary(data, playerIndex) {
+function game_summary(data, playerIndex, gameType) {
   const playerData = data.participants[playerIndex];
 
   const dto = {
     champion: playerData.championName,
-    win: playerData.win,
-    kills: playerData.kills,
-    deaths: playerData.deaths,
+    stats: {
+      win: playerData.win,
+      kills: playerData.kills,
+      deaths: playerData.deaths,
+      assists: playerData.assists,
+      kill_assists: playerData.assists + playerData.kills,
+      kda: LeagueStats.getKDA(
+        playerData.kills,
+        playerData.assists,
+        playerData.deaths
+      ),
+      kpa: LeagueStats.getKPA(
+        playerData.kills,
+        LeagueStats.getTotalKills(data, playerData),
+        playerData.assists
+      ),
+      level: playerData.champLevel,
+      cs: LeagueStats.getCS(playerData.neutralMinionsKilled, playerData.totalMinionsKilled),
+      cspm: LeagueStats.getCSPM(
+        LeagueStats.getCS(playerData.neutralMinionsKilled, playerData.totalMinionsKilled),
+        data.gameDuration
+      ),
+      total_team_kills: LeagueStats.getTotalKills(data, playerData),
+    },
     role: playerData.role,
-    totalTeamKills: LeagueStats.getTotalKills(data, playerData),
-    assists: playerData.assists,
-    killAssists: playerData.assists + playerData.kills,
-    kda: LeagueStats.getKDA(
-      playerData.kills,
-      playerData.assists,
-      playerData.deaths
-    ),
-    kpa: LeagueStats.getKPA(
-      playerData.kills,
-      LeagueStats.getTotalKills(data, playerData),
-      playerData.assists
-    ),
-    level: playerData.champLevel,
-    cs: LeagueStats.getCS(playerData.neutralMinionsKilled, playerData.totalMinionsKilled),
-    cspm: LeagueStats.getCS(
-      LeagueStats(playerData.neutralMinionsKilled, playerData.totalMinionsKilled),
-      data.gameDuration
-    ),
     time: Time.getTime(data.gameDuration),
     date: Time.getGameDate(data.gameCreation),
     timeDiff: Time.calcDiff(
       data.gameCreation,
       data.gameDuration
     ),
-    item1: 
-      playerData.item0 === 0
-        ? undefined
-        : playerData.item0,
-    item2:
-      playerData.item1 === 0
-        ? undefined
-        : playerData.item1,
-    item3:
-      playerData.item2 === 0
-        ? undefined
-        : playerData.item2,
-    item4:
-      playerData.item3 === 0
-        ? undefined
-        : playerData.item3,
-    item5:
-      playerData.item4 === 0
-        ? undefined
-        : playerData.item4,
-    item6:
-      playerData.item5 === 0
-        ? undefined
-        : playerData.item5,
+    items: [
+      playerData.item0,
+      playerData.item1,
+      playerData.item2,
+      playerData.item3,
+      playerData.item4,
+      playerData.item5,
+    ],
+    version: data.gameVersion,
+    queueType: gameType
   };
 
   return dto;
