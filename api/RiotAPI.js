@@ -63,8 +63,8 @@ class RiotAPI {
    * @param {int} end
    * @returns list of match ids
    */
-  static async matches(continent, puuid) {
-    const url = `https://${continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${apiKey}`;
+  static async matches(continent, puuid, numOfGames) {
+    const url = `https://${continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=${numOfGames}&api_key=${apiKey}`;
     const data = await fetchUrl(url);
     return data;
   }
