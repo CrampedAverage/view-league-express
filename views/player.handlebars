@@ -30,47 +30,35 @@
             <li class="match-history">
                 <div id="type-of-game">
                     <div><strong>Normal</strong></div>
-                    <div id="space">{{gameStats.timeDiff}}</div>
-                    <div><strong>{{gameStats.win}}</strong></div>
-                    <div>{{gameStats.time.mins}}mins {{gameStats.time.secs}}seconds</div>
+                    <div id="space">{{timeDiff}}</div>
+                    <div><strong>{{win}}</strong></div>
+                    <div>{{time.mins}}mins {{time.secs}}seconds</div>
                 </div>
 
                 <img 
                 class="champion-icon"
                 border-radius="50%"
-                src="https://cdn.communitydragon.org/11.10.1/champion/{{gameStats.champion}}/square">
+                src="https://cdn.communitydragon.org/11.10.1/champion/{{champion}}/square">
 
                 <div class="player-stats">
-                    <div class="calc-kda">{{gameStats.kda}}:1 KDA</div>
-                    <div class="raw-kda">{{gameStats.kills}} /<span class="deaths"> {{gameStats.deaths}} </span> / {{gameStats.assists}}</div>
+                    <div class="calc-kda">{{stats.kda}}:1 KDA</div>
+                    <div class="raw-kda">{{stats.kills}} /<span class="deaths"> {{stats.deaths}} </span> / {{stats.assists}}</div>
                 </div>
                 <div class="player-stats">
-                    <div>{{gameStats.cspm}} CS/Min</div>
-                    <div>{{gameStats.cs}} CS</div>
+                    <div>{{stats.cspm}} CS/Min</div>
+                    <div>{{stats.cs}} CS</div>
                 </div>
                 <div class="player-stats kpa">
-                    <div>{{gameStats.kpa}}% KPA</div>
-                    <div>{{gameStats.killAssist}}/{{gameStats.totalTeamKills}}</div>
+                    <div>{{stats.kpa}}% KPA</div>
+                    <div>{{stats.kill_assists}}/{{stats.total_team_kills}}</div>
                 </div>
+                
                 <div id="items">
-                    {{#if gameStats.item1}}
-                    <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item1}}.png">
-                    {{/if}}
-                    {{#if gameStats.item2}}
-                    <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item2}}.png">
-                    {{/if}}
-                    {{#if gameStats.item3}}
-                    <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item3}}.png">
-                    {{/if}}
-                    {{#if gameStats.item4}}
-                    <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item4}}.png">
-                    {{/if}}
-                    {{#if gameStats.item5}}
-                    <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item5}}.png">
-                    {{/if}}
-                    {{#if gameStats.item6}}
-                    <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/item/{{gameStats.item6}}.png">
-                    {{/if}}
+                    {{#each items}}
+                        {{#if item}}
+                            <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}.1/img/item/{{item}}.png">
+                        {{/if}}
+                    {{/each}}
                 </div>
             </li>
             {{/each}}
