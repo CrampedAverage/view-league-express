@@ -67,7 +67,7 @@ class Games {
 
       data = game_summary(info, playerIndex, gameType);
     } catch (err) {
-      data.error = err
+      data = err
     }
 
     return data;

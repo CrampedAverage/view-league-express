@@ -38,15 +38,34 @@ function game_summary(data, playerIndex, gameType) {
       data.gameDuration
     ),
     items: [
-      playerData.item0,
-      playerData.item1,
-      playerData.item2,
-      playerData.item3,
-      playerData.item4,
-      playerData.item5,
+      {
+        item: playerData.item0, 
+        version: data.gameVersion.split('.').slice(0, 2).join('.')
+      },
+      {
+        item: playerData.item1, 
+        version: data.gameVersion.split('.').slice(0, 2).join('.')
+      },
+      {
+        item: playerData.item2, 
+        version: data.gameVersion.split('.').slice(0, 2).join('.')
+      },
+      {
+        item: playerData.item3, 
+        version: data.gameVersion.split('.').slice(0, 2).join('.')
+      },
+      {
+        item: playerData.item4, 
+        version: data.gameVersion.split('.').slice(0, 2).join('.')
+      },
+      {
+        item: playerData.item5, 
+        version: data.gameVersion.split('.').slice(0, 2).join('.')
+      },
     ],
-    version: data.gameVersion,
-    queueType: gameType
+    version: data.gameVersion.split('.').slice(0, 2).join('.'),
+    queueType: gameType,
+
   };
 
   return dto;
