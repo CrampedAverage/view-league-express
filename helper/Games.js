@@ -7,7 +7,6 @@ class Games {
   constructor(puuid, continent) {
     this.puuid = puuid;
     this.continent = continent;
-    this.matches = [];
     this.getGameSummary = this.#getGameSummary.bind(this);
   }
 
@@ -17,51 +16,58 @@ class Games {
    * @return list of detailed match
    **/
   async getMatches(numberOfGames = 10) {
+    let data = []
     try {
       const rawDataMatches = await RiotAPI.matches(
         this.continent,
         this.puuid,
         numberOfGames
       );
+
       if (rawDataMatches.status)
         throw apiResponseValidation(
-          rawGameInfo.status.status_code,
-          "game_info"
+          rawDataMatches.status.status_code,
+          "game_ids"
         );
 
-      rawDataMatches.forEach(async (matchId, index) => {
-        const gameData = this.getGameSummary(rawDataMatches)
-        this.matches.push(gameData)
-      });
-      this.getGameSummary(rawDataMatches)
+
+      for (let i = 0; i < rawDataMatches.length; i++) {
+        let gameData = await this.getGameSummary(rawDataMatches[i])
+        data.push(gameData)
+      }
+
     } catch (err) {
-      console.log("error", err);
+      console.log(err)
     }
-    return this.matches;
+    
+    return data;
   }
   /**
    *
    * @param {uuid} matchId
-   * @returns
+   * @returns Formatted game summary object
    */
   async #getGameSummary(matchId) {
     let data;
     try {
       const rawGameInfo = await RiotAPI.match(this.continent, matchId);
       const { metadata, info } = rawGameInfo;
+      if (!rawGameInfo) throw {msg: 'Undefined game data', api: "game_info"}
+      if (rawGameInfo.status)
+      throw apiResponseValidation(
+        rawGameInfo.status.status_code,
+        "game_info"
+      );
+
       const gameType = await queueType(info.queueId);
 
       const playerIndex = metadata.participants.findIndex(
         (id) => id === this.puuid
       );
-      if (rawGameInfo.status)
-        throw apiResponseValidation(
-          rawGameInfo.status.status_code,
-          "game_info"
-        );
+
       data = game_summary(info, playerIndex, gameType);
     } catch (err) {
-      data.error = true
+      data.error = err
     }
 
     return data;
