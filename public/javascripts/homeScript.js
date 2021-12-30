@@ -22,11 +22,9 @@ function sloganEffect() {
 }
 
 function closeServerChange() {
-  console.log(1);
-  let serverDiv = document.querySelector(".server-change");
-  let close = document.querySelector(".close-regions");
-  let region = document.querySelector(".region");
-  console.log(region);
+  const serverDiv = document.querySelector(".server-change");
+  const close = document.querySelector(".close-regions");
+  const region = document.querySelector(".region");
 
   region.addEventListener("click", () => {
     serverDiv.style.display = "block";
