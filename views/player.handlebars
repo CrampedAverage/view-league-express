@@ -3,18 +3,38 @@
         <img class="sum-icon" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/{{user.icon}}.jpg" alt="Summoner Icon">
         <h1 class="player-name">{{user.summonerName}}</h1>
     </div>
-    <div class="rank">
+
+    <div class="rank-solo">
+        <ul class="rank-options">
+            <li value="rank-solo" class="active">Ranked Solo</li>
+            <li value="rank-solo" >Ranked Flex</li>
+        </ul> 
         <div> 
-            <img class="rank-border" src="/img/Emblem_{{user.tier}}.png" alt="Rank border">
-            <div class="rank-title">{{user.tier}}</div>
-            <div>{{user.rank}}</div>
+            <img class="rank-border" src="/img/Emblem_{{user.league.ranked_solo.tier}}.png" alt="Rank border">
+            <div class="rank-title">{{user.league.ranked_solo.tier}}</div>
+            <div>{{user.league.ranked_solo.rank}}</div>
 
         </div>
         <div>
-            <div class="total-games">{{user.wins}}W {{user.losses}}L</div>
-            <div id="wr-t">{{user.wr}}%</div>
+            <div class="total-games">{{user.league.ranked_solo.wins}}W {{user.league.ranked_solo.loss}}L</div>
+            <div id="wr">{{user.league.ranked_solo.wr}}%</div>
         </div>
+    </div>
+    <div class="rank-flex inactive-rank">
+        <ul class="rank-options">
+            <li value="rank-flex">Ranked Solo</li>
+            <li value="rank-flex" class="active" >Ranked Flex</li>
+        </ul> 
+        <div> 
+            <img class="rank-border" src="/img/Emblem_{{user.league.ranked_flex.tier}}.png" alt="Rank border">
+            <div class="rank-title">{{user.league.ranked_flex.tier}}</div>
+            <div>{{user.league.ranked_flex.rank}}</div>
 
+        </div>
+        <div>
+            <div class="total-games">{{user.league.ranked_flex.wins}}W {{user.league.ranked_flex.loss}}L</div>
+            <div id="wr">{{user.league.ranked_flex.wr}}%</div>
+        </div>
     </div>
 </div>
 
@@ -29,7 +49,7 @@
             {{#each games}}
             <li class="match-history">
                 <div id="type-of-game">
-                    <div><strong>Normal</strong></div>
+                    <div><strong>{{queueType}}</strong></div>
                     <div id="space">{{timeDiff}}</div>
                     <div><strong>{{win}}</strong></div>
                     <div>{{time.mins}}mins {{time.secs}}seconds</div>
@@ -124,3 +144,4 @@
         </li>
     </ul>
 </section>
+<script src="/javascripts/playerScript.js"></script>
