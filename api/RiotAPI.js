@@ -21,15 +21,26 @@ class RiotAPI {
     const url =
       "http://ddragon.leagueoflegends.com/cdn/11.8.1/data/en_US/champion.json";
     let data = await fetchUrl(url);
-
     data = Object.values(data.data);
     return data;
   }
 
-  static async getChampion() {
+  static async getChampion(id) {
     const version = this.getVersion();
     const url = `https://cdn.communitydragon.org/${version}/champion/${id}/square`;
     const data = await fetchUrl(url);
+    return data;
+  }
+  
+  /**
+   * Static JSON - Get an array of different queues
+   * @param {number} queueId 
+   * @returns Queue Data Object
+   */
+  static async queues(queueId) { 
+    const url = `https://static.developer.riotgames.com/docs/lol/queues.json`;
+    let data = await fetchUrl(url);
+    data = data.find(data => data.queueId === queueId)
     return data;
   }
 
@@ -52,8 +63,8 @@ class RiotAPI {
    * @param {int} end
    * @returns list of match ids
    */
-  static async matches(continent, puuid) {
-    const url = `https://${continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${apiKey}`;
+  static async matches(continent, puuid, numOfGames) {
+    const url = `https://${continent}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=${numOfGames}&api_key=${apiKey}`;
     const data = await fetchUrl(url);
     return data;
   }

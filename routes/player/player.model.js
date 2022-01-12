@@ -14,7 +14,7 @@ class Player {
     this.ids = { accountId: "", puuid: "" };
     this.leagues = { ranked_solo: {}, ranked_flex: {} };
     this.userInfo = {};
-    this.userMatches = {};
+    this.userMatches = [];
   }
 
   async playerInfo() {
@@ -80,11 +80,15 @@ class Player {
       const { puuid } = this.ids;
       const playerGames = new Games(puuid, this.continent);
       this.userMatches = await playerGames.getMatches(10);
+      
     } catch (err) {
-      console.log(err);
       switch (err.msg) {
+        case "Rate Limit Exceeded":
+          this.userMatches.limitReached = true;
+          break;
       }
     }
+    return this.userMatches
   }
 }
 

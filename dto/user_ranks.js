@@ -2,7 +2,7 @@ const LeagueStats = require("../helper/LeagueStats");
 
 const user_ranks = (data) => {
   const dto = {
-    tier: data.tier,
+    tier: LeagueStats.capitaliseWord(data.tier),
     rank: data.rank,
     wins: data.wins,
     loss: data.losses,
