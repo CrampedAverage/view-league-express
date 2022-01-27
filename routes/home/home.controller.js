@@ -8,7 +8,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-  let region = req.cookies.region;
+  let region = req.cookies.region ? req.cookies.region : 'euw';
   res.redirect(`/${region}`);
 });
 
