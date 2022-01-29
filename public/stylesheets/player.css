@@ -43,6 +43,7 @@
 
 .rank-solo > div, .rank-flex  > div {
   display: flex;
+  align-items: center;
 }
 
 .rank-solo > div:first-child , .rank-flex  > div:first-child {
