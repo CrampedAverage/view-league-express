@@ -15,6 +15,7 @@
                 <img class="rank-border" src="/img/Emblem_{{user.league.ranked_solo.tier}}.png" alt="Rank border">
                 <div class="rank-title">{{user.league.ranked_solo.tier}}</div>
                 <div>{{user.league.ranked_solo.rank}}</div>
+                <div class="rank-points">{{user.league.ranked_solo.points}} LP</div>
             {{else}}
                 <img class="rank-border" src="/img/Emblem_Unranked.png" alt="Rank border">
                 <div class="rank-title">Unranked</div>
@@ -39,6 +40,8 @@
                 <img class="rank-border" src="/img/Emblem_{{user.league.ranked_flex.tier}}.png" alt="Rank border">
                 <div class="rank-title">{{user.league.ranked_flex.tier}}</div>
                 <div>{{user.league.ranked_flex.rank}}</div>
+                <div class="rank-points">{{user.league.ranked_flex.points}} LP</div>
+
             {{else}}
                 <img class="rank-border" src="/img/Emblem_Unranked.png" alt="Rank border">
                 <div class="rank-title">Unranked</div>
