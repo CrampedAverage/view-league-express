@@ -4,7 +4,7 @@ const playerView = (userInfo, userMatches, req) => {
     viewObj.location = 'noUser';
     viewObj.data = {
       title: `Not Found || viewLeague`,
-      style: "none.css",
+      style: "",
       region: req.cookies.region,
     }
     viewObj.status = 404
