@@ -6,8 +6,8 @@ function game_summary(data, playerIndex, gameType) {
 
   const dto = {
     champion: playerData.championName,
+    win: playerData.win ? "Victory" : "Defeat",
     stats: {
-      win: playerData.win,
       kills: playerData.kills,
       deaths: playerData.deaths,
       assists: playerData.assists,
