@@ -43,6 +43,7 @@
 
 .rank-solo > div, .rank-flex  > div {
   display: flex;
+  align-items: center;
 }
 
 .rank-solo > div:first-child , .rank-flex  > div:first-child {
@@ -69,6 +70,11 @@
 
 .rank-title {
   margin: 0px 10px 0px 15px;
+}
+
+.rank-points {
+  margin-left: auto;
+  
 }
 
 .player-name {

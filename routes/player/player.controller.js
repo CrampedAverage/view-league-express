@@ -13,12 +13,12 @@ router.post("/", (req, res) => {
 });
 
 router.get("/:playerName", async (req, res) => {
-  const Player = new PlayerModel(req.params.playerName, req.cookies.region);
+  const Player = new PlayerModel(req.params.playerName, req.cookies.region ? req.cookies.region : 'euw');
+
   const playerInfo = await Player.playerInfo();
   const playerMatches = await Player.playerMatches();
 
   const view = playerView(playerInfo, playerMatches, req);
-
   res.status(view.status);
   res.render(view.location, view.data);
 });

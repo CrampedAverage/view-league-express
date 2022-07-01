@@ -10,14 +10,24 @@
             <li value="rank-solo" >Ranked Flex</li>
         </ul> 
         <div> 
-            <img class="rank-border" src="/img/Emblem_{{user.league.ranked_solo.tier}}.png" alt="Rank border">
-            <div class="rank-title">{{user.league.ranked_solo.tier}}</div>
-            <div>{{user.league.ranked_solo.rank}}</div>
-
+            
+            {{#if user.league.ranked_solo.tier}}
+                <img class="rank-border" src="/img/Emblem_{{user.league.ranked_solo.tier}}.png" alt="Rank border">
+                <div class="rank-title">{{user.league.ranked_solo.tier}}</div>
+                <div>{{user.league.ranked_solo.rank}}</div>
+                <div class="rank-points">{{user.league.ranked_solo.points}} LP</div>
+            {{else}}
+                <img class="rank-border" src="/img/Emblem_Unranked.png" alt="Rank border">
+                <div class="rank-title">Unranked</div>
+            {{/if}}
         </div>
         <div>
-            <div class="total-games">{{user.league.ranked_solo.wins}}W {{user.league.ranked_solo.loss}}L</div>
-            <div id="wr">{{user.league.ranked_solo.wr}}%</div>
+            {{#if user.league.ranked_solo.tier}}
+                <div class="total-games">{{user.league.ranked_solo.wins}}W {{user.league.ranked_solo.loss}}L</div>
+                <div id="wr">{{user.league.ranked_solo.wr}}%</div>
+            {{else}}
+                <div class="total-games">0W 0L</div>
+            {{/if}}
         </div>
     </div>
     <div class="rank-flex inactive-rank">
@@ -26,14 +36,24 @@
             <li value="rank-flex" class="active" >Ranked Flex</li>
         </ul> 
         <div> 
-            <img class="rank-border" src="/img/Emblem_{{user.league.ranked_flex.tier}}.png" alt="Rank border">
-            <div class="rank-title">{{user.league.ranked_flex.tier}}</div>
-            <div>{{user.league.ranked_flex.rank}}</div>
+            {{#if user.league.ranked_flex.tier}}
+                <img class="rank-border" src="/img/Emblem_{{user.league.ranked_flex.tier}}.png" alt="Rank border">
+                <div class="rank-title">{{user.league.ranked_flex.tier}}</div>
+                <div>{{user.league.ranked_flex.rank}}</div>
+                <div class="rank-points">{{user.league.ranked_flex.points}} LP</div>
 
+            {{else}}
+                <img class="rank-border" src="/img/Emblem_Unranked.png" alt="Rank border">
+                <div class="rank-title">Unranked</div>
+            {{/if}}
         </div>
         <div>
-            <div class="total-games">{{user.league.ranked_flex.wins}}W {{user.league.ranked_flex.loss}}L</div>
-            <div id="wr">{{user.league.ranked_flex.wr}}%</div>
+            {{#if user.league.ranked_flex.tier}}
+                <div class="total-games">{{user.league.ranked_flex.wins}}W {{user.league.ranked_flex.loss}}L</div>
+                <div id="wr">{{user.league.ranked_flex.wr}}%</div>
+            {{else}}
+                <div class="total-games">0W 0L</div>
+            {{/if}}
         </div>
     </div>
 </div>
