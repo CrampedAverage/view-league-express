@@ -31,16 +31,16 @@ class RiotAPI {
     const data = await fetchUrl(url);
     return data;
   }
-  
+
   /**
    * Static JSON - Get an array of different queues
-   * @param {number} queueId 
+   * @param {number} queueId
    * @returns Queue Data Object
    */
-  static async queues(queueId) { 
+  static async queues(queueId) {
     const url = `https://static.developer.riotgames.com/docs/lol/queues.json`;
     let data = await fetchUrl(url);
-    data = data.find(data => data.queueId === queueId)
+    data = data.find((data) => data.queueId === queueId);
     return data;
   }
 

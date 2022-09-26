@@ -4,7 +4,7 @@ const serverless = require("serverless-http");
 const path = require("path");
 const exphbs = require("express-handlebars");
 const cookieParser = require("cookie-parser");
-const routes = require("./routes");
+const routes = require("../routes");
 
 const hbs = exphbs.create({
   defaultLayout: "main",
