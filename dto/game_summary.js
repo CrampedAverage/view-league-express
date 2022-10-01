@@ -1,5 +1,5 @@
 const LeagueStats = require("../helper/LeagueStats");
-const Time = require('../helper/Time');
+const Time = require("../helper/Time");
 
 function game_summary(data, playerIndex, gameType) {
   const playerData = data.participants[playerIndex];
@@ -23,9 +23,15 @@ function game_summary(data, playerIndex, gameType) {
         playerData.assists
       ),
       level: playerData.champLevel,
-      cs: LeagueStats.getCS(playerData.neutralMinionsKilled, playerData.totalMinionsKilled),
+      cs: LeagueStats.getCS(
+        playerData.neutralMinionsKilled,
+        playerData.totalMinionsKilled
+      ),
       cspm: LeagueStats.getCSPM(
-        LeagueStats.getCS(playerData.neutralMinionsKilled, playerData.totalMinionsKilled),
+        LeagueStats.getCS(
+          playerData.neutralMinionsKilled,
+          playerData.totalMinionsKilled
+        ),
         data.gameDuration
       ),
       total_team_kills: LeagueStats.getTotalKills(data, playerData),
@@ -33,39 +39,35 @@ function game_summary(data, playerIndex, gameType) {
     role: playerData.role,
     time: Time.getTime(data.gameDuration),
     date: Time.getGameDate(data.gameCreation),
-    timeDiff: Time.calcDiff(
-      data.gameCreation,
-      data.gameDuration
-    ),
+    timeDiff: Time.calcDiff(data.gameCreation, data.gameDuration),
     items: [
       {
-        item: playerData.item0, 
-        version: data.gameVersion.split('.').slice(0, 2).join('.')
+        item: playerData.item0,
+        version: data.gameVersion.split(".").slice(0, 2).join("."),
       },
       {
-        item: playerData.item1, 
-        version: data.gameVersion.split('.').slice(0, 2).join('.')
+        item: playerData.item1,
+        version: data.gameVersion.split(".").slice(0, 2).join("."),
       },
       {
-        item: playerData.item2, 
-        version: data.gameVersion.split('.').slice(0, 2).join('.')
+        item: playerData.item2,
+        version: data.gameVersion.split(".").slice(0, 2).join("."),
       },
       {
-        item: playerData.item3, 
-        version: data.gameVersion.split('.').slice(0, 2).join('.')
+        item: playerData.item3,
+        version: data.gameVersion.split(".").slice(0, 2).join("."),
       },
       {
-        item: playerData.item4, 
-        version: data.gameVersion.split('.').slice(0, 2).join('.')
+        item: playerData.item4,
+        version: data.gameVersion.split(".").slice(0, 2).join("."),
       },
       {
-        item: playerData.item5, 
-        version: data.gameVersion.split('.').slice(0, 2).join('.')
+        item: playerData.item5,
+        version: data.gameVersion.split(".").slice(0, 2).join("."),
       },
     ],
-    version: data.gameVersion.split('.').slice(0, 2).join('.'),
+    version: data.gameVersion.split(".").slice(0, 2).join("."),
     queueType: gameType,
-
   };
 
   return dto;
