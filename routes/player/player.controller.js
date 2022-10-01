@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const PlayerModel = require("./player.model.js");
-const playerView  = require("./player.view.js");
+const playerView = require("./player.view.js");
 
 router.get("/", (req, res) => {
   res.send("he12321he");
@@ -13,7 +13,10 @@ router.post("/", (req, res) => {
 });
 
 router.get("/:playerName", async (req, res) => {
-  const Player = new PlayerModel(req.params.playerName, req.cookies.region ? req.cookies.region : 'euw');
+  const Player = new PlayerModel(
+    req.params.playerName,
+    req.cookies.region ? req.cookies.region : "euw"
+  );
 
   const playerInfo = await Player.playerInfo();
   const playerMatches = await Player.playerMatches();

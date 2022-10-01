@@ -13,8 +13,7 @@
             
             {{#if user.league.ranked_solo.tier}}
                 <img class="rank-border" src="/img/Emblem_{{user.league.ranked_solo.tier}}.png" alt="Rank border">
-                <div class="rank-title">{{user.league.ranked_solo.tier}}</div>
-                <div>{{user.league.ranked_solo.rank}}</div>
+                <div class="rank-title">{{user.league.ranked_solo.tier}} {{user.league.ranked_solo.rank}}</div>   
                 <div class="rank-points">{{user.league.ranked_solo.points}} LP</div>
             {{else}}
                 <img class="rank-border" src="/img/Emblem_Unranked.png" alt="Rank border">
