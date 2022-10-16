@@ -8,6 +8,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
+  console.log(regions);
   let region = req.cookies.region ? req.cookies.region : "euw";
 
   if (regions[req.params.region]) {
