@@ -38,10 +38,6 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "/views"));
 
-app.use("/error", (req, res) => {
-  res.send("123");
-});
-
 routes(app, { urlencodedParser, jsonParser });
 
 app.listen(port, () => {
