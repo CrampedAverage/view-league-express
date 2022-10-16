@@ -6,7 +6,7 @@ class LeagueStats {
    * @param {String} deaths
    * @returns {Number} KDA in 2 decimal points
    */
-  static getKDA(kills, assists, deaths) {
+  getKDA(kills, assists, deaths) {
     let kda = kills + assists;
     kda = kda / deaths;
     kda = kda.toFixed(2);
@@ -21,7 +21,7 @@ class LeagueStats {
    * @param {Number} rawTime
    * @returns {Number} CSPM in 1 decimal point
    */
-  static getCSPM(cs, rawTime) {
+  getCSPM(cs, rawTime) {
     let cspm = cs / (rawTime / 60);
 
     cspm = cspm.toFixed(1);
@@ -36,7 +36,7 @@ class LeagueStats {
    * @param {Number} monsterCS
    * @returns {Number} totalCS
    */
-  static getCS(minionCS, monsterCS) {
+  getCS(minionCS, monsterCS) {
     let totalCS = minionCS + monsterCS;
 
     return totalCS;
@@ -49,7 +49,7 @@ class LeagueStats {
    * @param {Number} assists
    * @returns {Number} KPA to 0 decimal points
    */
-  static getKPA(kills, totalKills, assists) {
+  getKPA(kills, totalKills, assists) {
     let kpa = ((kills + assists) / totalKills) * 100;
     kpa = kpa.toFixed(0);
     kpa = parseFloat(kpa);
@@ -63,7 +63,7 @@ class LeagueStats {
    * @param {Object} playerData
    * @returns {Number} totalKills
    */
-  static getTotalKills(match, playerData) {
+  getTotalKills(match, playerData) {
     const totalTeamKills = match.participants.map((player) => {
       if (playerData.teamId == player.teamId) {
         return player.kills;
@@ -81,7 +81,7 @@ class LeagueStats {
    * @param {Number} losses
    * @returns {Number} wr
    */
-  static getWinrate(wins, losses) {
+  getWinrate(wins, losses) {
     let wr = wins / (wins + losses);
     wr = wr * 100;
     wr = wr.toFixed(0);
@@ -93,7 +93,7 @@ class LeagueStats {
    * @param {String} word
    * @returns {String} newWord
    */
-  static capitaliseWord(word) {
+  capitaliseWord(word) {
     let newWord = word.toLowerCase();
     newWord = newWord.split("");
     newWord[0] = newWord[0].toUpperCase();
