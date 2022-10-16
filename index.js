@@ -22,7 +22,7 @@ let urlencodedParser = express.urlencoded({ extended: false, limit: "20mb" });
 
 const app = express();
 const port = process.env.PORT || 4000;
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(
   helmet.contentSecurityPolicy({
     use: true,
