@@ -3,8 +3,8 @@
 const home = require("./home/home.controller");
 
 function routes(app, { urlencodedParser }) {
-  // app.use("/champions", champions);
-  // app.use("/player", urlencodedParser, player);
+  app.use("/champions", champions);
+  app.use("/player", urlencodedParser, player);
   app.use("/", urlencodedParser, home);
 }
 
