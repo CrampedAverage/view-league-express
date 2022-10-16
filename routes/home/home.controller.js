@@ -10,13 +10,7 @@ router.use((req, res, next) => {
 router.get("/", (req, res) => {
   let region = req.cookies.region ? req.cookies.region : "euw";
 
-  res.render("home", {
-    title: "viewLeague || View Players",
-    name: "Home Page",
-    style: "home.css",
-    region: "euw",
-  });
-  // res.redirect(`/${region}`);
+  res.redirect(`/${region}`);
 });
 
 router.get("/:region", (req, res) => {
