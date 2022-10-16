@@ -1,4 +1,4 @@
-const LeagueStats = require("../helpers/LeagueStats");
+const LeagueStats = require("../helpers/leagueStats");
 
 const user_ranks = (data) => {
   const dto = {

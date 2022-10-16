@@ -1,4 +1,4 @@
-const LeagueStats = require("../helpers/LeagueStats");
+const LeagueStats = require("../helpers/leagueStats");
 const Time = require("../helpers/Time");
 
 function game_summary(data, playerIndex, gameType) {

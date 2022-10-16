@@ -1,6 +1,6 @@
 const RiotAPI = require("../../api/RiotAPI");
 const apiResponseValidation = require("../../helpers/errorValidation");
-const LeagueStats = require("../../helpers/LeagueStats");
+const LeagueStats = require("../../helpers/leagueStats");
 const { user_ranks } = require("../../dto");
 const continents = require("../../util/continents");
 const regions = require("../../util/regions");
