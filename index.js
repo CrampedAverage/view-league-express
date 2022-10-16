@@ -1,5 +1,5 @@
 require("dotenv").config();
-const express = require("express");
+const express = require("serverless-express/express");
 const path = require("path");
 const exphbs = require("express-handlebars");
 const cookieParser = require("cookie-parser");
@@ -43,8 +43,10 @@ app.use("/error", (req, res) => {
 
 routes(app, { urlencodedParser, jsonParser });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+if (process.env.NODE_ENV == "development") {
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+  });
+}
 
 module.exports = app;
