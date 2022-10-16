@@ -44,10 +44,6 @@ app.use("/error", (req, res) => {
 
 routes(app, { urlencodedParser, jsonParser });
 
-if (process.env.NODE_ENV == "development") {
-  app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-  });
-}
-
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
