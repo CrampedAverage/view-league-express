@@ -1,5 +1,5 @@
-const LeagueStats = require("../helper/LeagueStats");
-const Time = require("../helper/Time");
+const LeagueStats = require("../helpers/LeagueStats");
+const Time = require("../helpers/Time");
 
 function game_summary(data, playerIndex, gameType) {
   const playerData = data.participants[playerIndex];

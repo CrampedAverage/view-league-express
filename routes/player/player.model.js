@@ -1,10 +1,10 @@
 const RiotAPI = require("../../api/RiotAPI");
-const apiResponseValidation = require("../../helper/errorValidation");
-const LeagueStats = require("../../helper/LeagueStats");
+const apiResponseValidation = require("../../helpers/errorValidation");
+const LeagueStats = require("../../helpers/LeagueStats");
 const { user_ranks } = require("../../dto");
 const continents = require("../../util/continents");
 const regions = require("../../util/regions");
-const Games = require("../../helper/Games");
+const Games = require("../../helpers/Games");
 
 class Player {
   constructor(summonerName, region) {
@@ -80,7 +80,6 @@ class Player {
       const { puuid } = this.ids;
       const playerGames = new Games(puuid, this.continent);
       this.userMatches = await playerGames.getMatches(10);
-      
     } catch (err) {
       switch (err.msg) {
         case "Rate Limit Exceeded":
@@ -88,7 +87,7 @@ class Player {
           break;
       }
     }
-    return this.userMatches
+    return this.userMatches;
   }
 }
 
