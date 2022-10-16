@@ -1,5 +1,5 @@
-// const champions = require("./champions/champions.controller");
-// const player = require("./player/player.controller");
+const champions = require("./champions/champions.controller");
+const player = require("./player/player.controller");
 const home = require("./home/home.controller");
 
 function routes(app, { urlencodedParser }) {
